@@ -1,0 +1,42 @@
+# VPA: сайт + API заказов + PostgreSQL
+# Запуск: docker compose up -d
+# API и сайт: http://localhost:3000
+
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://vpa:vpa@db:5432/vpa
+      PORT: "3000"
+      STATIC_DIR: /app/static
+    volumes:
+      - .:/app/static:ro
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    restart: unless-stopped
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: vpa
+      POSTGRES_PASSWORD: vpa
+      POSTGRES_DB: vpa
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vpa -d vpa"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  postgres_data:

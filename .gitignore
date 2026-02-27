@@ -1,0 +1,13 @@
+# Зависимости
+node_modules/
+backend/node_modules/
+
+# Окружение и секреты
+backend/.env
+.env
+.env.local
+*.env.local
+
+# Логи и кэш
+*.log
+.DS_Store

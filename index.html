@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vkusno Polezno Astana — полезные десерты в Астане. Натуральные ингредиенты, торты, ПП десерты, доставка. Закажите в WhatsApp.">
+  <title>Vkusno Polezno Astana — Полезные десерты в Астане</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">Vkusno Polezno</a>
+      <nav class="nav">
+        <a href="#about" class="nav__link">О нас</a>
+        <a href="#menu" class="nav__link">Меню и цены</a>
+        <a href="#gallery" class="nav__link">Галерея</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+      </nav>
+      <a href="order.html" class="btn btn--primary header__cta">Оформить заказ</a>
+      <button type="button" class="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <a href="#about" class="mobile-menu__link">О нас</a>
+      <a href="#menu" class="mobile-menu__link">Меню и цены</a>
+      <a href="#gallery" class="mobile-menu__link">Галерея</a>
+      <a href="#reviews" class="mobile-menu__link">Отзывы</a>
+      <a href="#contacts" class="mobile-menu__link">Контакты</a>
+      <a href="order.html" class="btn btn--primary">Оформить заказ</a>
+      <a href="#" class="btn btn--outline btn-whatsapp" data-whatsapp>WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Block 1: Hero -->
+    <section class="hero">
+      <div class="hero__bg"></div>
+      <div class="container hero__content">
+        <h1 class="hero__title">Полезные десерты, которые влюбляют с первого вкуса</h1>
+        <p class="hero__subtitle">Натуральные ингредиенты. Без компромиссов.</p>
+        <div class="hero__buttons">
+          <a href="order.html" class="btn btn--primary btn--large">Оформить заказ</a>
+          <a href="#menu" class="btn btn--outline btn--large">Смотреть меню</a>
+        </div>
+        <p class="hero__alt"><a href="#" class="hero__alt-link btn-whatsapp" data-whatsapp>Или заказать в WhatsApp</a></p>
+      </div>
+    </section>
+
+    <!-- Block 2: О бренде -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">О бренде</h2>
+        <p class="about__lead">Мы создаём десерты, которые можно есть без чувства вины — из натуральных продуктов, без искусственных добавок, с любовью и вниманием к каждой детали.</p>
+        <ul class="advantages">
+          <li class="advantages__item">
+            <span class="advantages__icon">🌿</span>
+            <h3 class="advantages__title">Натуральные ингредиенты</h3>
+            <p class="advantages__text">Только проверенные поставщики и качественные продукты.</p>
+          </li>
+          <li class="advantages__item">
+            <span class="advantages__icon">✨</span>
+            <h3 class="advantages__title">Без искусственных добавок</h3>
+            <p class="advantages__text">Никаких консервантов, красителей и усилителей вкуса.</p>
+          </li>
+          <li class="advantages__item">
+            <span class="advantages__icon">🥐</span>
+            <h3 class="advantages__title">Свежие десерты</h3>
+            <p class="advantages__text">Готовим небольшими партиями и доставляем в лучшем виде.</p>
+          </li>
+          <li class="advantages__item">
+            <span class="advantages__icon">👩‍🍳</span>
+            <h3 class="advantages__title">Ручная работа</h3>
+            <p class="advantages__text">Каждый десерт создаётся с душой и вниманием к деталям.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Block 3: Продукция -->
+    <section id="products" class="products">
+      <div class="container">
+        <h2 class="section-title">Наша продукция</h2>
+        <div class="products__grid">
+          <article class="product-card">
+            <div class="product-card__image product-card__image--1"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">Торты</h3>
+              <p class="product-card__desc">Праздничные и ежедневные торты на заказ. Натуральные кремы, фрукты, орехи.</p>
+              <a href="order.html?product=торты" class="btn btn--primary">Заказать</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-card__image--2"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">Десерты</h3>
+              <p class="product-card__desc">Чизкейки, муссы, капкейки и ПП-десерты для тех, кто следит за питанием.</p>
+              <a href="order.html?product=десерты" class="btn btn--primary">Заказать</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-card__image--3"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">Хлеб</h3>
+              <p class="product-card__desc">Домашний хлеб на закваске и без дрожжей. Вкусно и полезно.</p>
+              <a href="order.html?product=хлеб" class="btn btn--primary">Заказать</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-card__image--4"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__title">Пироги</h3>
+              <p class="product-card__desc">Сладкие и несладкие пироги из натурального теста и начинок.</p>
+              <a href="order.html?product=пироги" class="btn btn--primary">Заказать</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Меню и цены (данные из data/menu.json; актуально — в Instagram) -->
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <h2 class="section-title">Меню и цены</h2>
+        <p class="menu__source">Актуальный ассортимент и цены публикуем в <a href="https://www.instagram.com/vkusno_polezno_astana/" target="_blank" rel="noopener noreferrer">Instagram</a>. Ниже — ориентировочные позиции.</p>
+        <div id="menu-root" class="menu__grid"></div>
+      </div>
+    </section>
+
+    <!-- Block 4: Галерея -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2 class="section-title">Галерея</h2>
+        <div class="gallery__grid">
+          <div class="gallery__item gallery__item--1"></div>
+          <div class="gallery__item gallery__item--2"></div>
+          <div class="gallery__item gallery__item--3"></div>
+          <div class="gallery__item gallery__item--4"></div>
+          <div class="gallery__item gallery__item--5"></div>
+          <div class="gallery__item gallery__item--6"></div>
+          <div class="gallery__item gallery__item--7"></div>
+          <div class="gallery__item gallery__item--8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 5: Как заказать -->
+    <section id="how" class="how">
+      <div class="container">
+        <h2 class="section-title">Как заказать</h2>
+        <ol class="steps">
+          <li class="steps__item">
+            <span class="steps__num">1</span>
+            <h3 class="steps__title">Напишите в WhatsApp</h3>
+            <p class="steps__text">Нажмите кнопку «Заказать» и напишите, что хотите заказать.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">2</span>
+            <h3 class="steps__title">Выберите десерт</h3>
+            <p class="steps__text">Мы подскажем по меню, срокам и доставке.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">3</span>
+            <h3 class="steps__title">Получите заказ</h3>
+            <p class="steps__text">Заберите самовывозом или оформите доставку по Астане.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Block 6: Отзывы -->
+    <section id="reviews" class="reviews">
+      <div class="container">
+        <h2 class="section-title">Отзывы</h2>
+        <div class="reviews__grid">
+          <blockquote class="review-card">
+            <p class="review-card__text">Заказывали торт на день рождения — все в восторге! Вкусно, красиво и чувствуется, что всё натуральное. Спасибо!</p>
+            <footer class="review-card__author">— Анна</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <p class="review-card__text">Наконец-то нашла место, где можно брать десерты детям без страха за состав. Ребёнок уплетает за обе щёки.</p>
+            <footer class="review-card__author">— Мария</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <p class="review-card__text">ПП-десерты действительно вкусные и без лишнего сахара. Заказываю регулярно для себя и семьи.</p>
+            <footer class="review-card__author">— Елена</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 7: CTA -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <h2 class="cta__title">Готовы попробовать?</h2>
+        <p class="cta__text">Оформите заказ на сайте — мы свяжемся с вами для подтверждения.</p>
+        <a href="order.html" class="btn btn--primary btn--large">Оформить заказ</a>
+        <p class="cta__alt"><a href="#" class="cta__alt-link btn-whatsapp" data-whatsapp>Или написать в WhatsApp</a></p>
+      </div>
+    </section>
+
+    <!-- Block 8: Контакты -->
+    <section id="contacts" class="contacts">
+      <div class="container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contacts__grid">
+          <div class="contacts__info">
+            <a href="#" class="contacts__link contacts__link--wa btn-whatsapp" data-whatsapp>WhatsApp</a>
+            <a href="https://www.instagram.com/vkusno_polezno_astana" target="_blank" rel="noopener noreferrer" class="contacts__link">Instagram</a>
+            <a href="https://www.tiktok.com/@vkusno_polezno_ast" target="_blank" rel="noopener noreferrer" class="contacts__link">TikTok</a>
+            <p class="contacts__address">Астана, доставка по городу</p>
+            <p class="contacts__form-intro">Оформите заказ через сайт — заявка попадёт в нашу CRM, мы перезвоним.</p>
+            <a href="order.html" class="btn btn--primary contacts__order-btn">Оформить заказ</a>
+            <p class="contacts__form-alt">Или отправьте заявку в WhatsApp:</p>
+            <form class="form" id="order-form">
+              <label class="form__label">
+                <span class="form__label-text">Имя</span>
+                <input type="text" name="name" class="form__input" placeholder="Ваше имя">
+              </label>
+              <label class="form__label">
+                <span class="form__label-text">Телефон</span>
+                <input type="tel" name="phone" class="form__input" placeholder="+7 (___) ___-__-__">
+              </label>
+              <label class="form__label">
+                <span class="form__label-text">Комментарий</span>
+                <textarea name="comment" class="form__input form__textarea" placeholder="Что хотите заказать?"></textarea>
+              </label>
+              <button type="submit" class="btn btn--outline btn--block btn-whatsapp" data-whatsapp>Отправить в WhatsApp</button>
+            </form>
+          </div>
+          <div class="contacts__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.954267382623!2d71.4304!3d51.1605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA5JzM3LjgiTiA3McKwMjUnNDkuNCJF!5e0!3m2!1sru!2skz!4v1"
+              width="100%"
+              height="300"
+              style="border:0; border-radius: 8px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Карта Астаны">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© Vkusno Polezno Astana. Полезные десерты в Астане.</p>
+      <div class="footer__links">
+        <a href="https://www.instagram.com/vkusno_polezno_astana" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@vkusno_polezno_ast" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

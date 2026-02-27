@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформить заказ — Vkusno Polezno Astana. Полезные десерты в Астане.">
+  <title>Оформить заказ — Vkusno Polezno Astana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">Vkusno Polezno</a>
+      <nav class="nav">
+        <a href="index.html#about" class="nav__link">О нас</a>
+        <a href="index.html#products" class="nav__link">Меню</a>
+        <a href="index.html#contacts" class="nav__link">Контакты</a>
+      </nav>
+      <a href="index.html" class="btn btn--outline header__cta">На главную</a>
+      <button type="button" class="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <a href="index.html#about" class="mobile-menu__link">О нас</a>
+      <a href="index.html#products" class="mobile-menu__link">Меню</a>
+      <a href="index.html#contacts" class="mobile-menu__link">Контакты</a>
+      <a href="index.html" class="mobile-menu__link">На главную</a>
+    </div>
+  </header>
+
+  <main class="order-page">
+    <section class="order-section">
+      <div class="container">
+        <h1 class="section-title">Оформить заказ</h1>
+        <p class="order-section__lead">Заполните форму — мы свяжемся с вами для уточнения деталей и подтверждения заказа.</p>
+
+        <div id="order-form-wrap" class="order-form-wrap">
+          <form class="form form--order" id="order-form" action="/api/orders" method="post">
+            <label class="form__label">
+              <span class="form__label-text">Имя <em>*</em></span>
+              <input type="text" name="name" class="form__input" required placeholder="Ваше имя" autocomplete="name">
+            </label>
+            <label class="form__label">
+              <span class="form__label-text">Телефон <em>*</em></span>
+              <input type="tel" name="phone" class="form__input" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            </label>
+            <label class="form__label">
+              <span class="form__label-text">Что хотите заказать</span>
+              <select name="product" class="form__input form__select">
+                <option value="">— Выберите категорию —</option>
+                <option value="торты">Торты</option>
+                <option value="десерты">Десерты</option>
+                <option value="хлеб">Хлеб</option>
+                <option value="пироги">Пироги</option>
+              </select>
+            </label>
+            <label class="form__label">
+              <span class="form__label-text">Комментарий к заказу</span>
+              <textarea name="comment" class="form__input form__textarea" placeholder="Например: торт на 10 человек, дата доставки, пожелания по начинке"></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary btn--block btn--large" id="order-submit">Отправить заказ</button>
+          </form>
+        </div>
+
+        <div id="order-success" class="order-success" hidden>
+          <p class="order-success__title">Заявка принята</p>
+          <p class="order-success__text">Мы свяжемся с вами в ближайшее время для подтверждения заказа.</p>
+          <a href="index.html" class="btn btn--primary">Вернуться на главную</a>
+        </div>
+
+        <div id="order-error" class="order-error" hidden>
+          <p class="order-error__text"></p>
+          <p class="order-error__alt">Вы можете оформить заказ через WhatsApp:</p>
+          <a href="#" class="btn btn--primary btn-whatsapp" data-whatsapp>Заказать в WhatsApp</a>
+        </div>
+
+        <div class="order-alt">
+          <p class="order-alt__text">Предпочитаете написать напрямую?</p>
+          <a href="#" class="btn btn--outline btn-whatsapp" data-whatsapp>Заказать через WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© Vkusno Polezno Astana. Полезные десерты в Астане.</p>
+      <div class="footer__links">
+        <a href="https://www.instagram.com/vkusno_polezno_astana" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@vkusno_polezno_ast" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>
