@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru" data-default-lang="ru">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vkusno Polezno Astana — Полезные десерты</title>
-<meta name="description" content="Полезные десерты в Астане. Натуральные ингредиенты, ручная работа, доставка в день заказа.">
+<title>Design System · Vkusno Polezno Astana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>/* ============================================
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+/* ============================================
    Vkusno Polezno — Design tokens
    Light, clean food, premium minimalism
    ============================================ */
@@ -121,8 +122,10 @@
   --vp-bp-lg: 1024px;
   --vp-bp-xl: 1280px;
 }
+
 </style>
-<style>/* ============================================
+<style>
+/* ============================================
    Vkusno Polezno — Base & primitives
    ============================================ */
 
@@ -310,8 +313,10 @@ button { font: inherit; cursor: pointer; }
   .js-ready .vp-reveal.vp-reveal--pending { opacity: 0; transform: translateY(16px); }
   .js-ready .vp-reveal.is-visible { opacity: 1; transform: none; }
 }
+
 </style>
-<style>/* ============================================
+<style>
+/* ============================================
    Vkusno Polezno — Components
    ============================================ */
 
@@ -735,329 +740,245 @@ button { font: inherit; cursor: pointer; }
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
 </style>
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>
-/* ─── Hero variant A: Editorial split ─── */
-.vp-hero-a {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 92vh;
-  gap: 0;
-}
-.vp-hero-a__copy {
-  padding: var(--vp-s-8) 0 var(--vp-s-8);
-  display: flex; flex-direction: column; justify-content: center;
-  gap: var(--vp-s-5);
-}
-.vp-hero-a__title {
-  font-family: var(--vp-serif);
-  font-size: var(--vp-t-display);
-  line-height: var(--vp-lh-display);
-  letter-spacing: var(--vp-track-tight);
-  font-weight: 400;
-  color: var(--vp-ink);
-  margin: 0;
-  font-variation-settings: "SOFT" 40, "opsz" 144;
-}
-.vp-hero-a__title em {
-  font-style: italic; color: var(--vp-sage-600);
-  font-variation-settings: "SOFT" 100, "opsz" 144;
-}
-.vp-hero-a__sub { color: var(--vp-ink-2); max-width: 46ch; font-size: var(--vp-t-body-lg); margin: 0; }
-.vp-hero-a__ctas { display: flex; flex-wrap: wrap; gap: var(--vp-s-3); }
-.vp-hero-a__stats { display: flex; flex-wrap: wrap; gap: var(--vp-s-5) var(--vp-s-7); padding-top: var(--vp-s-5); border-top: 1px solid var(--vp-line); }
-.vp-hero-a__stat { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--vp-ink-2); }
-.vp-hero-a__stat i { color: var(--vp-sage-600); font-size: 1.2rem; }
-.vp-hero-a__media {
-  position: relative; min-height: 420px;
-  background-image: url("https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1400&q=85");
-  background-size: cover; background-position: center;
-}
-.vp-hero-a__media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(42,39,36,0.25) 100%);
-}
-.vp-hero-a__badge {
-  position: absolute; right: var(--vp-s-6); top: var(--vp-s-6);
-  background: var(--vp-paper);
-  padding: var(--vp-s-4) var(--vp-s-5);
-  border-radius: var(--vp-r-lg);
-  box-shadow: var(--vp-shadow-md);
-  z-index: 1;
-  display: flex; flex-direction: column; gap: 2px;
-  max-width: 210px;
-}
-.vp-hero-a__badge strong { font-family: var(--vp-serif); font-size: 1.25rem; font-weight: 400; font-variation-settings: "SOFT" 100, "opsz" 72; }
-.vp-hero-a__badge span { font-size: 0.8125rem; color: var(--vp-ink-3); }
-@media (min-width: 960px) {
-  .vp-hero-a { grid-template-columns: 1.05fr 1fr; }
-  .vp-hero-a__copy { padding-right: var(--vp-s-8); }
-  .vp-hero-a__media { min-height: 0; }
-}
+/* ─── DS page ─── */
+body { background: var(--vp-paper); }
 
-/* ─── Hero variant B: Full-bleed with floating card ─── */
-.vp-hero-b {
-  position: relative; min-height: 92vh;
-  background-image:
-    linear-gradient(180deg, rgba(251, 248, 243, 0.55) 0%, rgba(251, 248, 243, 0.15) 45%, rgba(42, 39, 36, 0.45) 100%),
-    url("https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=1800&q=85");
-  background-size: cover;
-  background-position: center;
-  display: flex; align-items: flex-end;
-  padding-block: var(--vp-s-9) var(--vp-s-8);
-  color: var(--vp-paper);
+.vp-ds-hero {
+  padding: var(--vp-s-9) 0 var(--vp-s-7);
+  border-bottom: 1px solid var(--vp-line);
 }
-.vp-hero-b__card {
-  background: var(--vp-paper);
-  color: var(--vp-ink);
-  padding: var(--vp-s-7) var(--vp-s-7) var(--vp-s-6);
-  border-radius: var(--vp-r-xl);
-  max-width: 640px;
-  display: flex; flex-direction: column; gap: var(--vp-s-5);
-  box-shadow: var(--vp-shadow-xl);
+.vp-ds-hero__title {
+  font-family: var(--vp-serif); font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400; line-height: 0.98; letter-spacing: -0.025em;
+  font-variation-settings: "SOFT" 50, "opsz" 144;
+  margin: var(--vp-s-4) 0 var(--vp-s-5);
 }
-.vp-hero-b__title {
-  font-family: var(--vp-serif); font-size: var(--vp-t-h1);
-  line-height: var(--vp-lh-heading); letter-spacing: var(--vp-track-tight);
-  font-weight: 400; margin: 0;
-  font-variation-settings: "SOFT" 50, "opsz" 100;
+.vp-ds-hero__title em { color: var(--vp-sage-600); font-style: italic; font-variation-settings: "SOFT" 100, "opsz" 144; }
+.vp-ds-hero__meta {
+  display: flex; gap: var(--vp-s-6); flex-wrap: wrap;
+  color: var(--vp-ink-3); font-size: 0.875rem;
+  padding-top: var(--vp-s-5); border-top: 1px solid var(--vp-line);
+  margin-top: var(--vp-s-5);
 }
-.vp-hero-b__title em { color: var(--vp-sage-600); font-style: italic; }
-.vp-hero-b__sub { margin: 0; color: var(--vp-ink-2); font-size: var(--vp-t-body-lg); }
-.vp-hero-b__ctas { display: flex; gap: var(--vp-s-3); flex-wrap: wrap; }
-.vp-hero-b__orbit {
-  position: absolute; right: 5%; top: 20%;
-  width: 140px; height: 140px; border-radius: 50%;
-  background: var(--vp-paper);
-  color: var(--vp-ink);
-  display: grid; place-items: center;
-  font-family: var(--vp-serif);
-  text-align: center; padding: var(--vp-s-3);
-  font-size: 0.875rem; line-height: 1.3;
-  transform: rotate(-8deg);
-  box-shadow: var(--vp-shadow-lg);
-  font-variation-settings: "SOFT" 100;
-}
-.vp-hero-b__orbit strong { display: block; font-size: 1.6rem; font-variation-settings: "SOFT" 100, "opsz" 72; }
-@media (max-width: 720px) {
-  .vp-hero-b__orbit { width: 100px; height: 100px; font-size: 0.75rem; right: 5%; top: 10%; }
-  .vp-hero-b__orbit strong { font-size: 1.2rem; }
-}
+.vp-ds-hero__meta strong { color: var(--vp-ink); font-weight: 600; display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.6875rem; margin-bottom: 4px; }
 
-/* ─── Hero variant C: Magazine / editorial ─── */
-.vp-hero-c {
-  padding-block: var(--vp-s-8) var(--vp-s-8);
-  background: var(--vp-paper);
-}
-.vp-hero-c__grid {
-  display: grid;
+.vp-ds-layout {
+  display: grid; gap: 0;
   grid-template-columns: 1fr;
-  gap: var(--vp-s-6);
-  align-items: center;
 }
 @media (min-width: 960px) {
-  .vp-hero-c__grid { grid-template-columns: 1fr 1.2fr 1fr; gap: var(--vp-s-6); }
+  .vp-ds-layout { grid-template-columns: 220px 1fr; }
 }
-.vp-hero-c__tile {
-  border-radius: var(--vp-r-lg);
-  aspect-ratio: 3/4;
-  background-size: cover; background-position: center;
-  box-shadow: var(--vp-shadow-sm);
-}
-.vp-hero-c__tile--a {
-  background-image: url("https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=700&q=85");
-}
-.vp-hero-c__tile--b {
-  background-image: url("https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85");
-  aspect-ratio: 4/5;
-}
-.vp-hero-c__center {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  gap: var(--vp-s-5);
-  padding: var(--vp-s-5);
-}
-.vp-hero-c__title {
-  font-family: var(--vp-serif); font-size: var(--vp-t-display);
-  line-height: 0.98; letter-spacing: -0.025em;
-  font-weight: 400; margin: 0;
-  font-variation-settings: "SOFT" 30, "opsz" 144;
-}
-.vp-hero-c__title em { color: var(--vp-sage-600); font-style: italic; font-variation-settings: "SOFT" 100, "opsz" 144; }
-.vp-hero-c__sub { color: var(--vp-ink-2); font-size: var(--vp-t-body-lg); max-width: 40ch; margin: 0; }
-.vp-hero-c__ctas { display: flex; gap: var(--vp-s-3); flex-wrap: wrap; justify-content: center; }
-.vp-hero-c__ornament {
-  display: inline-flex; align-items: center; gap: var(--vp-s-3);
-  font-family: var(--vp-serif); font-style: italic; color: var(--vp-cocoa-500);
-  font-size: 1rem;
-}
-.vp-hero-c__ornament hr { width: 32px; height: 1px; background: var(--vp-line-strong); border: 0; }
 
-/* ─── Split product showcase ─── */
-.vp-showcase {
-  background: var(--vp-milk);
-  padding-block: var(--vp-section-y);
+.vp-ds-sidebar {
+  padding: var(--vp-s-6) 0;
+  border-right: 1px solid var(--vp-line);
+  position: sticky; top: 76px;
+  height: calc(100vh - 76px);
+  overflow-y: auto;
+  padding-right: var(--vp-s-5);
 }
-.vp-showcase__tabs {
-  display: flex; gap: 6px; flex-wrap: wrap;
-  padding: 5px;
-  background: var(--vp-white);
-  border: 1px solid var(--vp-line);
-  border-radius: var(--vp-r-pill);
-  width: fit-content;
-  margin-bottom: var(--vp-s-6);
+@media (max-width: 960px) {
+  .vp-ds-sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--vp-line); padding-right: 0; }
 }
-.vp-showcase__tab {
-  padding: 0.6rem 1.125rem; font-size: 0.875rem; font-weight: 600;
-  color: var(--vp-ink-2); background: transparent; border: 0;
-  border-radius: var(--vp-r-pill);
+.vp-ds-sidebar h5 {
+  font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--vp-ink-3); margin: 0 0 var(--vp-s-3);
+  padding-left: var(--vp-s-5);
+}
+.vp-ds-sidebar ul { list-style: none; margin: 0 0 var(--vp-s-5); padding: 0; }
+.vp-ds-sidebar a {
+  display: block; padding: 8px var(--vp-s-5);
+  font-size: 0.9375rem; color: var(--vp-ink-2);
+  border-left: 2px solid transparent;
   transition: all var(--vp-dur) var(--vp-ease);
 }
-.vp-showcase__tab.is-active { background: var(--vp-ink); color: var(--vp-paper); }
+.vp-ds-sidebar a:hover { color: var(--vp-ink); background: var(--vp-milk); }
+.vp-ds-sidebar a.is-active { color: var(--vp-ink); border-left-color: var(--vp-sage-500); background: var(--vp-milk); }
 
-/* ─── About block ─── */
-.vp-about-blk {
-  display: grid; gap: var(--vp-s-7);
-  grid-template-columns: 1fr;
-  align-items: center;
+.vp-ds-main {
+  padding: var(--vp-s-7) var(--vp-s-6) var(--vp-s-8);
 }
-@media (min-width: 960px) {
-  .vp-about-blk { grid-template-columns: 1fr 1.1fr; gap: var(--vp-s-9); }
+@media (max-width: 960px) {
+  .vp-ds-main { padding-inline: 0; }
 }
-.vp-about-blk__media {
-  aspect-ratio: 4/5;
-  border-radius: var(--vp-r-xl);
-  background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=85") center/cover;
-  position: relative;
-}
-.vp-about-blk__stamp {
-  position: absolute; right: -20px; bottom: -20px;
-  width: 170px; height: 170px;
-  background: var(--vp-sage-500); color: var(--vp-paper);
-  border-radius: 50%;
-  display: grid; place-items: center; text-align: center;
-  font-family: var(--vp-serif); font-size: 1.15rem; line-height: 1.2;
-  padding: var(--vp-s-4);
-  font-variation-settings: "SOFT" 100, "opsz" 72;
-  transform: rotate(-6deg);
-  box-shadow: var(--vp-shadow-md);
-}
-.vp-about-blk__stamp strong { display: block; font-size: 2.4rem; margin-bottom: 4px; font-variation-settings: "SOFT" 100, "opsz" 144; }
 
-/* ─── CTA (earthy sage block) ─── */
-.vp-cta-blk {
-  background:
-    radial-gradient(1200px 400px at 80% 0%, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(140deg, var(--vp-sage-600) 0%, var(--vp-sage-ink) 100%);
-  color: var(--vp-paper);
-  border-radius: var(--vp-r-xl);
-  padding: var(--vp-s-9) var(--vp-s-7);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.vp-ds-section {
+  padding-block: var(--vp-s-7);
+  border-bottom: 1px solid var(--vp-line);
+  scroll-margin-top: 100px;
 }
-.vp-cta-blk::before {
-  content: ""; position: absolute; inset: -40px;
-  background: radial-gradient(circle at 20% 120%, rgba(251, 248, 243, 0.08), transparent 40%);
-  pointer-events: none;
+.vp-ds-section:last-child { border-bottom: 0; }
+.vp-ds-section__head {
+  margin-bottom: var(--vp-s-6);
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--vp-s-4); flex-wrap: wrap;
 }
-.vp-cta-blk h2 {
-  font-family: var(--vp-serif); font-size: var(--vp-t-h1);
-  margin: 0 0 var(--vp-s-3); font-weight: 400; letter-spacing: var(--vp-track-tight);
-  font-variation-settings: "SOFT" 60, "opsz" 100;
+.vp-ds-section__title {
+  font-family: var(--vp-serif); font-size: 2.25rem; font-weight: 400;
+  margin: 0;
+  font-variation-settings: "SOFT" 50, "opsz" 100;
 }
-.vp-cta-blk p { margin: 0 auto var(--vp-s-6); max-width: 520px; color: rgba(251, 248, 243, 0.85); font-size: var(--vp-t-body-lg); }
-.vp-cta-blk .vp-btn--primary { --bg: var(--vp-paper); --fg: var(--vp-sage-ink); }
-.vp-cta-blk .vp-btn--primary:hover { --bg: var(--vp-white); }
-.vp-cta-blk .vp-btn--outline { --bd: rgba(251, 248, 243, 0.4); --fg: var(--vp-paper); }
-.vp-cta-blk .vp-btn--outline:hover { --bg: var(--vp-paper); --fg: var(--vp-sage-ink); --bd: var(--vp-paper); }
+.vp-ds-section__code {
+  font-family: var(--vp-mono); font-size: 0.75rem; color: var(--vp-ink-3);
+  background: var(--vp-milk); padding: 4px 10px; border-radius: var(--vp-r-sm);
+}
 
-/* ─── Contacts block ─── */
-.vp-contacts-grid {
-  display: grid; gap: var(--vp-s-6);
-  grid-template-columns: 1fr;
+/* Color swatches */
+.vp-swatches-grid {
+  display: grid; gap: var(--vp-s-4);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
-@media (min-width: 900px) {
-  .vp-contacts-grid { grid-template-columns: 1fr 1.2fr; }
-}
-.vp-contact-row {
-  display: flex; align-items: center; gap: var(--vp-s-4);
-  padding: var(--vp-s-4) 0; border-bottom: 1px solid var(--vp-line);
-}
-.vp-contact-row:last-child { border-bottom: 0; }
-.vp-contact-row i {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--vp-sage-50); color: var(--vp-sage-600);
-  display: grid; place-items: center; font-size: 1.25rem;
-  flex: none;
-}
-.vp-contact-row small { display: block; color: var(--vp-ink-3); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 2px; }
-.vp-contact-row strong { font-weight: 600; color: var(--vp-ink); font-size: 1rem; }
-
-.vp-map {
-  aspect-ratio: 1.3;
-  background: var(--vp-cream);
-  border-radius: var(--vp-r-lg);
-  overflow: hidden;
+.vp-sw {
   border: 1px solid var(--vp-line);
+  border-radius: var(--vp-r-md);
+  overflow: hidden;
+  background: var(--vp-white);
 }
-.vp-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.vp-sw__chip {
+  aspect-ratio: 1.3;
+  position: relative;
+}
+.vp-sw__body {
+  padding: 14px 16px;
+  font-size: 0.8125rem;
+}
+.vp-sw__body strong {
+  display: block; color: var(--vp-ink); font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 2px;
+}
+.vp-sw__body code {
+  font-family: var(--vp-mono); font-size: 0.75rem; color: var(--vp-ink-3);
+}
 
-/* ─── Tweaks panel ─── */
-.vp-tweaks {
-  position: fixed; right: 20px; bottom: 20px; z-index: 100;
+/* Type specimens */
+.vp-type-row {
+  display: grid; gap: var(--vp-s-4);
+  grid-template-columns: 180px 1fr;
+  padding: var(--vp-s-5) 0;
+  border-bottom: 1px solid var(--vp-line);
+  align-items: baseline;
+}
+.vp-type-row:last-child { border-bottom: 0; }
+.vp-type-row__meta {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.vp-type-row__meta strong { font-weight: 600; font-size: 0.875rem; color: var(--vp-ink); }
+.vp-type-row__meta code { font-family: var(--vp-mono); font-size: 0.75rem; color: var(--vp-ink-3); }
+.vp-type-row__meta span { font-size: 0.75rem; color: var(--vp-ink-3); }
+@media (max-width: 640px) {
+  .vp-type-row { grid-template-columns: 1fr; }
+}
+
+/* Spacing scale */
+.vp-space-grid {
+  display: flex; flex-direction: column; gap: var(--vp-s-3);
+}
+.vp-space-row {
+  display: grid; gap: var(--vp-s-5);
+  grid-template-columns: 80px 1fr 120px;
+  align-items: center;
+  font-size: 0.875rem;
+}
+.vp-space-bar {
+  height: 12px; background: var(--vp-sage-500); border-radius: 2px;
+}
+.vp-space-row code { font-family: var(--vp-mono); font-size: 0.75rem; color: var(--vp-ink-3); }
+
+/* Radius tiles */
+.vp-radius-grid {
+  display: grid; gap: var(--vp-s-4);
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+.vp-radius-tile {
+  aspect-ratio: 1;
+  background: var(--vp-milk);
+  border: 1px solid var(--vp-line-strong);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: var(--vp-s-3);
+  font-size: 0.75rem; color: var(--vp-ink-3);
+  font-family: var(--vp-mono);
+}
+.vp-radius-tile strong { color: var(--vp-ink); font-size: 0.875rem; margin-bottom: 2px; font-family: var(--vp-sans); }
+
+/* Shadow tiles */
+.vp-shadow-grid {
+  display: grid; gap: var(--vp-s-5);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  padding: var(--vp-s-5);
+  background: var(--vp-milk);
+  border-radius: var(--vp-r-lg);
+}
+.vp-shadow-tile {
+  aspect-ratio: 1.3;
+  background: var(--vp-white);
+  border-radius: var(--vp-r-md);
+  padding: var(--vp-s-3);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  font-size: 0.75rem; color: var(--vp-ink-3);
+  font-family: var(--vp-mono);
+}
+.vp-shadow-tile strong { color: var(--vp-ink); font-size: 0.875rem; margin-bottom: 2px; font-family: var(--vp-sans); }
+
+/* Demo rows */
+.vp-demo {
+  padding: var(--vp-s-6);
+  background: var(--vp-white);
+  border: 1px solid var(--vp-line);
+  border-radius: var(--vp-r-md);
+  display: flex; flex-wrap: wrap; gap: var(--vp-s-3);
+  align-items: center;
+  margin-bottom: var(--vp-s-4);
+}
+.vp-demo--col { flex-direction: column; align-items: stretch; }
+.vp-demo__label {
+  font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--vp-ink-3); margin-bottom: 8px; font-weight: 600;
+  width: 100%;
+}
+
+/* Icon grid */
+.vp-icon-grid {
+  display: grid; gap: var(--vp-s-2);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+.vp-icon-tile {
+  aspect-ratio: 1;
+  background: var(--vp-white);
+  border: 1px solid var(--vp-line);
+  border-radius: var(--vp-r-md);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px;
+  transition: all var(--vp-dur) var(--vp-ease);
+}
+.vp-icon-tile:hover { border-color: var(--vp-sage-300); background: var(--vp-milk); }
+.vp-icon-tile i { font-size: 1.5rem; color: var(--vp-ink); }
+.vp-icon-tile span { font-size: 0.6875rem; color: var(--vp-ink-3); font-family: var(--vp-mono); }
+
+/* Principles cards */
+.vp-princ-grid {
+  display: grid; gap: var(--vp-s-5);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.vp-princ {
+  padding: var(--vp-s-5);
   background: var(--vp-white);
   border: 1px solid var(--vp-line);
   border-radius: var(--vp-r-lg);
-  box-shadow: var(--vp-shadow-xl);
-  padding: var(--vp-s-5);
-  width: 280px;
-  display: none;
 }
-.vp-tweaks.is-open { display: block; }
-.vp-tweaks h3 { margin: 0 0 var(--vp-s-4); font-family: var(--vp-serif); font-size: 1.125rem; font-weight: 400; }
-.vp-tweaks__row { margin-bottom: var(--vp-s-4); }
-.vp-tweaks__row label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--vp-ink-3); margin-bottom: 8px; }
-.vp-tweaks__seg {
-  display: flex; background: var(--vp-milk); border: 1px solid var(--vp-line);
-  border-radius: var(--vp-r-sm); padding: 3px;
+.vp-princ__num {
+  font-family: var(--vp-serif); font-size: 2.5rem; color: var(--vp-sage-300);
+  line-height: 1; font-variation-settings: "SOFT" 100, "opsz" 72;
 }
-.vp-tweaks__seg button {
-  flex: 1; padding: 8px 10px; font-size: 0.8125rem; font-weight: 600;
-  color: var(--vp-ink-2); background: transparent; border: 0;
-  border-radius: var(--vp-r-xs);
-}
-.vp-tweaks__seg button.is-active { background: var(--vp-ink); color: var(--vp-paper); }
-
-/* Hero visibility */
-.vp-hero-slot { display: none; }
-body[data-hero="a"] .vp-hero-slot[data-hero="a"],
-body[data-hero="b"] .vp-hero-slot[data-hero="b"],
-body[data-hero="c"] .vp-hero-slot[data-hero="c"] { display: block; }
-
-/* Icon-off mode */
-body[data-icons="off"] .ph { display: none !important; }
-
-/* Scroll cue */
-.vp-scroll-cue {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--vp-ink-3);
-}
-.vp-scroll-cue::after {
-  content: ""; width: 40px; height: 1px; background: currentColor;
-  animation: vp-cue 1.8s ease-in-out infinite;
-  transform-origin: left;
-}
-@keyframes vp-cue {
-  0%, 100% { transform: scaleX(0.4); opacity: 0.5; }
-  50% { transform: scaleX(1); opacity: 1; }
-}
+.vp-princ h4 { font-family: var(--vp-serif); font-size: 1.25rem; font-weight: 400; margin: var(--vp-s-3) 0 var(--vp-s-2); font-variation-settings: "SOFT" 80; }
+.vp-princ p { margin: 0; font-size: 0.9375rem; color: var(--vp-ink-2); }
 </style>
 </head>
-<body data-hero="a" data-icons="on">
+<body>
 
-<!-- ═════ HEADER ═════ -->
 <header class="vp-header">
   <div class="vp-container vp-header__inner">
     <a href="index.html" class="vp-logo">
@@ -1065,485 +986,500 @@ body[data-icons="off"] .ph { display: none !important; }
       <span>Vkusno Polezno</span>
     </a>
     <nav class="vp-nav">
-      <a href="#about" data-i18n="nav.about">О нас</a>
+      <a href="index.html#about" data-i18n="nav.about">О нас</a>
       <a href="menu.html" data-i18n="nav.menu">Ассортимент</a>
-      <a href="#gallery" data-i18n="nav.gallery">Галерея</a>
-      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
-      <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+      <a href="index.html#gallery" data-i18n="nav.gallery">Галерея</a>
+      <a href="index.html#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="index.html#contacts" data-i18n="nav.contacts">Контакты</a>
     </nav>
     <div class="vp-header__actions">
-      <div class="vp-lang" role="tablist" aria-label="Language">
-        <button data-lang="ru" class="is-active">RU</button>
-        <button data-lang="kz">KZ</button>
-        <button data-lang="en">EN</button>
-      </div>
-      <a href="order.html" class="vp-btn vp-btn--primary vp-btn--sm vp-header__cta" data-i18n="cta.order">Оформить заказ</a>
+      <a href="index.html" class="vp-btn vp-btn--outline vp-btn--sm vp-header__cta">На главную</a>
       <button type="button" class="vp-burger" aria-label="Menu"><i></i></button>
     </div>
-  </div>
-  <div class="vp-drawer">
-    <a href="#about" data-i18n="nav.about">О нас</a>
-    <a href="menu.html" data-i18n="nav.menu">Ассортимент</a>
-    <a href="#gallery" data-i18n="nav.gallery">Галерея</a>
-    <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
-    <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
-    <a href="order.html" class="vp-btn vp-btn--primary" style="justify-content:center;margin-top:var(--vp-s-4);" data-i18n="cta.order">Оформить заказ</a>
   </div>
 </header>
 
 <main>
 
-<!-- ═════ HERO (3 variants) ═════ -->
-
-<!-- Variant A: Editorial split -->
-<section class="vp-hero-slot" data-hero="a">
+<!-- Hero -->
+<section class="vp-ds-hero">
   <div class="vp-container">
-    <div class="vp-hero-a">
-      <div class="vp-hero-a__copy vp-reveal">
-        <span class="vp-eyebrow" data-i18n="hero.eyebrow">Астана · с 2021</span>
-        <h1 class="vp-hero-a__title" data-i18n="hero.title">
-          Десерты, в которые влюбляются <em>с первого вкуса</em>
-        </h1>
-        <p class="vp-hero-a__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-        <div class="vp-hero-a__ctas">
-          <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-          <a href="menu.html" class="vp-btn vp-btn--outline vp-btn--lg"><span data-i18n="cta.see_menu">Смотреть ассортимент</span><i class="ph ph-arrow-right"></i></a>
-        </div>
-        <div class="vp-hero-a__stats">
-          <div class="vp-hero-a__stat"><i class="ph ph-leaf"></i><span data-i18n="hero.stat1">Свежие партии каждый день</span></div>
-          <div class="vp-hero-a__stat"><i class="ph ph-check-circle"></i><span data-i18n="hero.stat2">Без сахара-заменителя</span></div>
-          <div class="vp-hero-a__stat"><i class="ph ph-truck"></i><span data-i18n="hero.stat3">Доставка по Астане</span></div>
-        </div>
-      </div>
-      <div class="vp-hero-a__media vp-reveal">
-        <div class="vp-hero-a__badge">
-          <strong>4.9 / 5</strong>
-          <span>★★★★★ · 240+ отзывов</span>
-        </div>
-      </div>
+    <span class="vp-eyebrow">Design System · v1.0 · 2026</span>
+    <h1 class="vp-ds-hero__title" data-i18n="page.ds.title">Язык бренда<br><em>Vkusno Polezno</em></h1>
+    <p class="vp-lead" style="font-size:var(--vp-t-body-lg);max-width:56ch;">Живая спецификация визуального языка — фундамент, на котором строится любая страница, баннер, стори или упаковка.</p>
+
+    <div class="vp-ds-hero__meta">
+      <div><strong>Тип</strong>Премиум-минимализм, чистая еда</div>
+      <div><strong>Основа</strong>Кремовые тона, шалфей, какао</div>
+      <div><strong>Шрифты</strong>Fraunces + Manrope</div>
+      <div><strong>Сетка</strong>CSS Grid, контейнер 1240px</div>
     </div>
   </div>
 </section>
 
-<!-- Variant B: Full-bleed with floating card -->
-<section class="vp-hero-slot" data-hero="b">
-  <div class="vp-hero-b">
-    <div class="vp-container">
-      <div class="vp-hero-b__card vp-reveal">
-        <span class="vp-eyebrow" data-i18n="hero.eyebrow">Астана · с 2021</span>
-        <h1 class="vp-hero-b__title" data-i18n="hero.title">
-          Десерты, в которые влюбляются <em>с первого вкуса</em>
-        </h1>
-        <p class="vp-hero-b__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-        <div class="vp-hero-b__ctas">
-          <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-          <a href="#" class="vp-btn vp-btn--ghost vp-btn--lg" data-whatsapp><i class="ph ph-whatsapp-logo"></i><span data-i18n="hero.alt">Или напишите в WhatsApp</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="vp-hero-b__orbit">
-      Свежая выпечка<br><strong>каждый день</strong>
-    </div>
-  </div>
-</section>
+<!-- Layout: sidebar + content -->
+<div class="vp-container">
+  <div class="vp-ds-layout">
 
-<!-- Variant C: Magazine editorial -->
-<section class="vp-hero-slot" data-hero="c">
-  <div class="vp-hero-c">
-    <div class="vp-container">
-      <div class="vp-hero-c__grid">
-        <div class="vp-hero-c__tile vp-hero-c__tile--a vp-reveal"></div>
-        <div class="vp-hero-c__center vp-reveal">
-          <span class="vp-hero-c__ornament"><hr>Vkusno Polezno Astana<hr></span>
-          <h1 class="vp-hero-c__title" data-i18n="hero.title">
-            Десерты, <em>в которые</em> влюбляются с первого вкуса
-          </h1>
-          <p class="vp-hero-c__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-          <div class="vp-hero-c__ctas">
-            <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><span data-i18n="cta.order">Оформить заказ</span><i class="ph ph-arrow-right"></i></a>
-            <a href="menu.html" class="vp-btn vp-btn--ghost vp-btn--lg"><span data-i18n="cta.see_menu">Смотреть ассортимент</span></a>
+    <aside class="vp-ds-sidebar" id="ds-sidebar">
+      <h5>Основа</h5>
+      <ul>
+        <li><a href="#principles">Принципы</a></li>
+        <li><a href="#colors">Цвет</a></li>
+        <li><a href="#type">Типографика</a></li>
+        <li><a href="#space">Пространство</a></li>
+        <li><a href="#radius">Радиусы</a></li>
+        <li><a href="#shadows">Тени</a></li>
+      </ul>
+      <h5>Компоненты</h5>
+      <ul>
+        <li><a href="#buttons">Кнопки</a></li>
+        <li><a href="#forms">Поля</a></li>
+        <li><a href="#chips">Чипы и метки</a></li>
+        <li><a href="#cards">Карточки</a></li>
+        <li><a href="#icons">Иконки</a></li>
+      </ul>
+    </aside>
+
+    <div class="vp-ds-main">
+
+      <!-- Principles -->
+      <section class="vp-ds-section" id="principles">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Принципы</h2>
+        </header>
+        <div class="vp-princ-grid">
+          <div class="vp-princ">
+            <span class="vp-princ__num">01</span>
+            <h4>Светлая основа</h4>
+            <p>Кремовые оттенки создают ощущение свежести и натуральности. Фон — всегда светлый.</p>
           </div>
-          <span class="vp-scroll-cue">scroll</span>
+          <div class="vp-princ">
+            <span class="vp-princ__num">02</span>
+            <h4>Воздух важнее</h4>
+            <p>Плотность — враг премиальности. Отступы щедрые, сетка не перегружена.</p>
+          </div>
+          <div class="vp-princ">
+            <span class="vp-princ__num">03</span>
+            <h4>Редакторская типо</h4>
+            <p>Fraunces для эмоций, Manrope для ясности. Курсив — акцент, а не декор.</p>
+          </div>
+          <div class="vp-princ">
+            <span class="vp-princ__num">04</span>
+            <h4>Минимум эффектов</h4>
+            <p>Тени мягкие и тёплые. Никаких жёстких градиентов, никаких ярких неонов.</p>
+          </div>
         </div>
-        <div class="vp-hero-c__tile vp-hero-c__tile--b vp-reveal"></div>
-      </div>
+      </section>
+
+      <!-- Colors -->
+      <section class="vp-ds-section" id="colors">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Цвет</h2>
+          <span class="vp-ds-section__code">tokens.css</span>
+        </header>
+
+        <h4 class="vp-h4" style="margin-bottom:var(--vp-s-4);">Базовые (кремы)</h4>
+        <div class="vp-swatches-grid" style="margin-bottom:var(--vp-s-6);">
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#fbf8f3"></div><div class="vp-sw__body"><strong>Paper</strong><code>--vp-paper · #fbf8f3</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#f7f2ea"></div><div class="vp-sw__body"><strong>Milk</strong><code>--vp-milk · #f7f2ea</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#efe7da"></div><div class="vp-sw__body"><strong>Cream</strong><code>--vp-cream · #efe7da</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#e4d8c4"></div><div class="vp-sw__body"><strong>Sand</strong><code>--vp-sand · #e4d8c4</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#ffffff;border-right:1px solid var(--vp-line)"></div><div class="vp-sw__body"><strong>White</strong><code>--vp-white · #ffffff</code></div></div>
+        </div>
+
+        <h4 class="vp-h4" style="margin-bottom:var(--vp-s-4);">Шалфей (primary)</h4>
+        <div class="vp-swatches-grid" style="margin-bottom:var(--vp-s-6);">
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#eef2ec"></div><div class="vp-sw__body"><strong>Sage 50</strong><code>#eef2ec</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#d9e2d3"></div><div class="vp-sw__body"><strong>Sage 100</strong><code>#d9e2d3</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#a7bca0"></div><div class="vp-sw__body"><strong>Sage 300</strong><code>#a7bca0</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#6b8f71"></div><div class="vp-sw__body"><strong>Sage 500</strong><code>#6b8f71</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#567557"></div><div class="vp-sw__body"><strong>Sage 600</strong><code>#567557</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#3f5841"></div><div class="vp-sw__body"><strong>Sage 700</strong><code>#3f5841</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#2a3b2c"></div><div class="vp-sw__body"><strong>Sage Ink</strong><code>#2a3b2c</code></div></div>
+        </div>
+
+        <h4 class="vp-h4" style="margin-bottom:var(--vp-s-4);">Какао (secondary)</h4>
+        <div class="vp-swatches-grid" style="margin-bottom:var(--vp-s-6);">
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#c9ac88"></div><div class="vp-sw__body"><strong>Cocoa 300</strong><code>#c9ac88</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#8b7355"></div><div class="vp-sw__body"><strong>Cocoa 500</strong><code>#8b7355</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#5c4a34"></div><div class="vp-sw__body"><strong>Cocoa 700</strong><code>#5c4a34</code></div></div>
+        </div>
+
+        <h4 class="vp-h4" style="margin-bottom:var(--vp-s-4);">Акценты + текст</h4>
+        <div class="vp-swatches-grid">
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#a4596b"></div><div class="vp-sw__body"><strong>Berry</strong><code>--vp-berry · #a4596b</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#d6a24e"></div><div class="vp-sw__body"><strong>Honey</strong><code>--vp-honey · #d6a24e</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#2a2724"></div><div class="vp-sw__body"><strong>Ink</strong><code>--vp-ink · #2a2724</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#57524b"></div><div class="vp-sw__body"><strong>Ink 2</strong><code>#57524b</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#8a8278"></div><div class="vp-sw__body"><strong>Ink 3</strong><code>#8a8278</code></div></div>
+          <div class="vp-sw"><div class="vp-sw__chip" style="background:#b6ad9e"></div><div class="vp-sw__body"><strong>Ink 4</strong><code>#b6ad9e</code></div></div>
+        </div>
+      </section>
+
+      <!-- Typography -->
+      <section class="vp-ds-section" id="type">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Типографика</h2>
+          <span class="vp-ds-section__code">Fraunces · Manrope</span>
+        </header>
+
+        <div>
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Display</strong>
+              <code>--vp-t-display</code>
+              <span>Fraunces · 400 · 44–84 px</span>
+            </div>
+            <span class="vp-display">Десерты, в которые <em style="color:var(--vp-sage-600);">влюбляются</em></span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>H1</strong>
+              <code>--vp-t-h1</code>
+              <span>Fraunces · 400 · 36–60 px</span>
+            </div>
+            <span class="vp-h1">Каждый десерт — история заботы</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>H2</strong>
+              <code>--vp-t-h2</code>
+              <span>Fraunces · 400 · 28–40 px</span>
+            </div>
+            <span class="vp-h2">Как мы делаем свои торты</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>H3</strong>
+              <code>--vp-t-h3</code>
+              <span>Fraunces · 400 · 22–28 px</span>
+            </div>
+            <span class="vp-h3">Медовик на гречишном мёде</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>H4 / UI Title</strong>
+              <code>--vp-t-h4</code>
+              <span>Manrope · 600 · 18 px</span>
+            </div>
+            <span class="vp-h4">Натуральные ингредиенты</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Eyebrow</strong>
+              <code>.vp-eyebrow</code>
+              <span>Manrope · 600 · 13 px · uppercase · 0.14em</span>
+            </div>
+            <span class="vp-eyebrow">Астана · с 2021</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Lead</strong>
+              <code>.vp-lead</code>
+              <span>Manrope · 400 · 17 px · 1.55 lh</span>
+            </div>
+            <span class="vp-lead">Мы создаём десерты, которые можно есть без чувства вины — из натуральных продуктов, с любовью и вниманием к каждой детали.</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Body</strong>
+              <code>--vp-t-body</code>
+              <span>Manrope · 400 · 16 px · 1.62 lh</span>
+            </div>
+            <span>Тонкие медовые коржи на натуральном мёде, нежный сметанный крем с ванилью. Никакой химии — только то, что вы ждёте от настоящего медовика.</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Small</strong>
+              <code>--vp-t-small</code>
+              <span>Manrope · 400 · 13 px</span>
+            </div>
+            <span style="font-size: 0.8125rem; color: var(--vp-ink-2);">За 1 кг · 8–10 порций · срок изготовления 24 часа</span>
+          </div>
+
+          <div class="vp-type-row">
+            <div class="vp-type-row__meta">
+              <strong>Mono</strong>
+              <code>--vp-mono</code>
+              <span>JetBrains Mono · 400 · 14 px</span>
+            </div>
+            <code style="font-family: var(--vp-mono); font-size: 0.875rem; color: var(--vp-cocoa-700);">--vp-sage-500: #6b8f71;</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spacing -->
+      <section class="vp-ds-section" id="space">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Пространство</h2>
+          <span class="vp-ds-section__code">4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128</span>
+        </header>
+        <div class="vp-space-grid">
+          <div class="vp-space-row"><strong>s-1</strong><div class="vp-space-bar" style="width:4px;"></div><code>4px</code></div>
+          <div class="vp-space-row"><strong>s-2</strong><div class="vp-space-bar" style="width:8px;"></div><code>8px</code></div>
+          <div class="vp-space-row"><strong>s-3</strong><div class="vp-space-bar" style="width:12px;"></div><code>12px</code></div>
+          <div class="vp-space-row"><strong>s-4</strong><div class="vp-space-bar" style="width:16px;"></div><code>16px</code></div>
+          <div class="vp-space-row"><strong>s-5</strong><div class="vp-space-bar" style="width:24px;"></div><code>24px</code></div>
+          <div class="vp-space-row"><strong>s-6</strong><div class="vp-space-bar" style="width:32px;"></div><code>32px</code></div>
+          <div class="vp-space-row"><strong>s-7</strong><div class="vp-space-bar" style="width:48px;"></div><code>48px</code></div>
+          <div class="vp-space-row"><strong>s-8</strong><div class="vp-space-bar" style="width:64px;"></div><code>64px</code></div>
+          <div class="vp-space-row"><strong>s-9</strong><div class="vp-space-bar" style="width:96px;"></div><code>96px</code></div>
+          <div class="vp-space-row"><strong>s-10</strong><div class="vp-space-bar" style="width:128px;"></div><code>128px</code></div>
+        </div>
+      </section>
+
+      <!-- Radius -->
+      <section class="vp-ds-section" id="radius">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Радиусы</h2>
+          <span class="vp-ds-section__code">--vp-r-*</span>
+        </header>
+        <div class="vp-radius-grid">
+          <div class="vp-radius-tile" style="border-radius: 4px;"><strong>xs</strong>4px</div>
+          <div class="vp-radius-tile" style="border-radius: 8px;"><strong>sm</strong>8px</div>
+          <div class="vp-radius-tile" style="border-radius: 12px;"><strong>md</strong>12px</div>
+          <div class="vp-radius-tile" style="border-radius: 20px;"><strong>lg</strong>20px</div>
+          <div class="vp-radius-tile" style="border-radius: 32px;"><strong>xl</strong>32px</div>
+          <div class="vp-radius-tile" style="border-radius: 999px;"><strong>pill</strong>∞</div>
+        </div>
+      </section>
+
+      <!-- Shadows -->
+      <section class="vp-ds-section" id="shadows">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Тени</h2>
+          <span class="vp-ds-section__code">тёплые, 10–14% чёрного</span>
+        </header>
+        <div class="vp-shadow-grid">
+          <div class="vp-shadow-tile" style="box-shadow: var(--vp-shadow-xs);"><strong>xs</strong>hover, chips</div>
+          <div class="vp-shadow-tile" style="box-shadow: var(--vp-shadow-sm);"><strong>sm</strong>subtle lift</div>
+          <div class="vp-shadow-tile" style="box-shadow: var(--vp-shadow-md);"><strong>md</strong>cards</div>
+          <div class="vp-shadow-tile" style="box-shadow: var(--vp-shadow-lg);"><strong>lg</strong>floating</div>
+          <div class="vp-shadow-tile" style="box-shadow: var(--vp-shadow-xl);"><strong>xl</strong>modals, hero</div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section class="vp-ds-section" id="buttons">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Кнопки</h2>
+          <span class="vp-ds-section__code">.vp-btn</span>
+        </header>
+
+        <div class="vp-demo">
+          <span class="vp-demo__label">Primary (sage) — главное действие</span>
+          <button class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i>Оформить заказ</button>
+          <button class="vp-btn vp-btn--primary">Оформить</button>
+          <button class="vp-btn vp-btn--primary vp-btn--sm">Мелкая</button>
+        </div>
+
+        <div class="vp-demo">
+          <span class="vp-demo__label">Secondary (ink) — сильный акцент</span>
+          <button class="vp-btn vp-btn--secondary vp-btn--lg">Подробнее</button>
+          <button class="vp-btn vp-btn--secondary">Подробнее</button>
+          <button class="vp-btn vp-btn--secondary vp-btn--sm">Подробнее</button>
+        </div>
+
+        <div class="vp-demo">
+          <span class="vp-demo__label">Outline — второстепенное</span>
+          <button class="vp-btn vp-btn--outline vp-btn--lg">Смотреть меню</button>
+          <button class="vp-btn vp-btn--outline">Смотреть меню</button>
+          <button class="vp-btn vp-btn--outline vp-btn--sm">Меню</button>
+        </div>
+
+        <div class="vp-demo">
+          <span class="vp-demo__label">Ghost — текстовая ссылка-кнопка</span>
+          <button class="vp-btn vp-btn--ghost">Подробнее →</button>
+          <button class="vp-btn vp-btn--ghost"><i class="ph ph-whatsapp-logo"></i>WhatsApp</button>
+        </div>
+
+        <div class="vp-demo">
+          <span class="vp-demo__label">Block (full-width)</span>
+          <button class="vp-btn vp-btn--primary vp-btn--block" style="max-width:420px;"><i class="ph ph-paper-plane-tilt"></i>Отправить заявку</button>
+        </div>
+      </section>
+
+      <!-- Forms -->
+      <section class="vp-ds-section" id="forms">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Поля</h2>
+          <span class="vp-ds-section__code">.vp-input · .vp-textarea · .vp-select</span>
+        </header>
+        <div style="display:grid;gap:var(--vp-s-4);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+          <label class="vp-field" style="margin:0;">
+            <div class="vp-field__label"><span>Имя <em>*</em></span></div>
+            <input class="vp-input" placeholder="Ваше имя">
+          </label>
+          <label class="vp-field" style="margin:0;">
+            <div class="vp-field__label"><span>Телефон</span><span class="vp-field__hint">для WhatsApp</span></div>
+            <input class="vp-input" type="tel" placeholder="+7 (___) ___-__-__">
+          </label>
+          <label class="vp-field" style="margin:0;">
+            <div class="vp-field__label"><span>Категория</span></div>
+            <select class="vp-select">
+              <option>Торты</option><option>Десерты</option><option>Хлеб</option><option>Пироги</option>
+            </select>
+          </label>
+          <label class="vp-field" style="margin:0;grid-column:1/-1;">
+            <div class="vp-field__label"><span>Комментарий</span><span class="vp-field__hint">необязательно</span></div>
+            <textarea class="vp-textarea" placeholder="Пожелания по начинке, декору, дате..."></textarea>
+          </label>
+        </div>
+      </section>
+
+      <!-- Chips -->
+      <section class="vp-ds-section" id="chips">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Чипы и метки</h2>
+        </header>
+        <div class="vp-demo">
+          <span class="vp-demo__label">Chips</span>
+          <span class="vp-chip">ПП</span>
+          <span class="vp-chip vp-chip--sage">Натуральный</span>
+          <span class="vp-chip vp-chip--cocoa">Хит продаж</span>
+          <span class="vp-chip"><i class="ph ph-leaf"></i>Без сахара</span>
+          <span class="vp-chip vp-chip--sage"><i class="ph ph-check"></i>В наличии</span>
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section class="vp-ds-section" id="cards">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Карточки</h2>
+        </header>
+
+        <div class="vp-grid-3">
+
+          <article class="vp-pcard">
+            <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=700&q=85');">
+              <div class="vp-pcard__tags"><span class="vp-pcard__tag">Хит</span></div>
+              <button class="vp-pcard__fav"><i class="ph ph-heart"></i></button>
+            </div>
+            <div class="vp-pcard__body">
+              <h3 class="vp-pcard__title">Медовик</h3>
+              <div class="vp-pcard__meta"><span><i class="ph ph-scales"></i>1 кг</span></div>
+              <div class="vp-pcard__price-row"><div class="vp-pcard__price">7 500<small>₸</small></div><button class="vp-pcard__add"><i class="ph ph-plus"></i></button></div>
+            </div>
+          </article>
+
+          <div class="vp-fcard">
+            <div class="vp-fcard__icon"><i class="ph-duotone ph-leaf"></i></div>
+            <h3 class="vp-fcard__title">Натуральные ингредиенты</h3>
+            <p class="vp-fcard__text">Фермерское молоко, деревенские яйца, пшеница с ближайших ферм.</p>
+          </div>
+
+          <blockquote class="vp-rcard">
+            <div class="vp-rcard__stars">★★★★★</div>
+            <p class="vp-rcard__text">Брали на день рождения — все в восторге! Вкусно, красиво и чувствуется, что всё натуральное.</p>
+            <footer class="vp-rcard__author">
+              <div class="vp-rcard__avatar">А</div>
+              <div class="vp-rcard__meta"><strong>Анна</strong><span>март 2026</span></div>
+            </footer>
+          </blockquote>
+
+        </div>
+      </section>
+
+      <!-- Icons -->
+      <section class="vp-ds-section" id="icons">
+        <header class="vp-ds-section__head">
+          <h2 class="vp-ds-section__title">Иконки</h2>
+          <span class="vp-ds-section__code">Phosphor · regular + duotone</span>
+        </header>
+        <div class="vp-icon-grid">
+          <div class="vp-icon-tile"><i class="ph ph-cake"></i><span>cake</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-ice-cream"></i><span>ice-cream</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-bread"></i><span>bread</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-pie-chart"></i><span>pie-chart</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-leaf"></i><span>leaf</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-heart"></i><span>heart</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-seal-check"></i><span>seal-check</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-truck"></i><span>truck</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-storefront"></i><span>storefront</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-shopping-bag"></i><span>shopping-bag</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-whatsapp-logo"></i><span>whatsapp</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-instagram-logo"></i><span>instagram</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-map-pin"></i><span>map-pin</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-clock"></i><span>clock</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-phone"></i><span>phone</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-scales"></i><span>scales</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-shield-check"></i><span>shield-check</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-magnifying-glass"></i><span>magnifier</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-paper-plane-tilt"></i><span>plane</span></div>
+          <div class="vp-icon-tile"><i class="ph ph-arrow-right"></i><span>arrow-right</span></div>
+        </div>
+      </section>
+
     </div>
-  </div>
-</section>
-
-<!-- ═════ MARQUEE ═════ -->
-<div class="vp-marquee" aria-hidden="true">
-  <div class="vp-marquee__track">
-    <!-- doubled for seamless loop -->
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> натуральные ингредиенты</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> ручная работа</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> без искусственных добавок</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> свежая выпечка</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> доставка по Астане</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> с любовью</span>
-
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> натуральные ингредиенты</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> ручная работа</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> без искусственных добавок</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> свежая выпечка</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> доставка по Астане</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> с любовью</span>
   </div>
 </div>
 
-<!-- ═════ ABOUT ═════ -->
-<section id="about" class="vp-section">
-  <div class="vp-container">
-    <div class="vp-about-blk">
-      <div class="vp-about-blk__media vp-reveal">
-        <div class="vp-about-blk__stamp"><strong>5</strong>лет вместе<br>с Астаной</div>
-      </div>
-      <div class="vp-reveal">
-        <span class="vp-eyebrow" data-i18n="about.eyebrow">О бренде</span>
-        <h2 class="vp-h1" style="margin:var(--vp-s-4) 0;" data-i18n="about.title">Каждый десерт — маленькая история заботы</h2>
-        <p class="vp-lead" data-i18n="about.lead">Мы создаём десерты, которые можно есть без чувства вины — из натуральных продуктов, с любовью и вниманием к каждой детали. Работаем небольшими партиями и знаем каждого поставщика лично.</p>
-        <div class="vp-grid-2" style="margin-top:var(--vp-s-6);">
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-leaf"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v1.title">Натуральные ингредиенты</h3>
-            <p class="vp-fcard__text" data-i18n="about.v1.text">Фермерское молоко, деревенские яйца, пшеница с ближайших ферм.</p>
-          </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-seal-check"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v2.title">Без искусственного</h3>
-            <p class="vp-fcard__text" data-i18n="about.v2.text">Ни одного консерванта, красителя или усилителя вкуса.</p>
-          </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-sun"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v3.title">Свежие партии</h3>
-            <p class="vp-fcard__text" data-i18n="about.v3.text">Выпекаем каждое утро и доставляем в тот же день.</p>
-          </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-heart"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v4.title">Ручная работа</h3>
-            <p class="vp-fcard__text" data-i18n="about.v4.text">Каждый торт — декор руками мастера, никакого конвейера.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ SHOWCASE ═════ -->
-<section id="products" class="vp-showcase">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="prod.eyebrow">Наш ассортимент</span>
-      <h2 class="vp-section-head__title" data-i18n="prod.title">Что мы печём</h2>
-      <p class="vp-section-head__lead" data-i18n="prod.lead">От праздничных тортов до домашнего хлеба на закваске.</p>
-    </div>
-
-    <div class="vp-grid-4 vp-reveal">
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Хит</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.cakes">Торты</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-scales"></i>от 1 кг</span>
-            <span><i class="ph ph-clock"></i>24 ч</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 7 500<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">ПП</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.desserts">Десерты</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-cake"></i>штучно</span>
-            <span><i class="ph ph-leaf"></i>без сахара</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 650<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Закваска</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.bread">Хлеб</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-bread"></i>буханка</span>
-            <span><i class="ph ph-timer"></i>48 ч</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 1 100<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Домашние</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.pies">Пироги</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-pie-chart"></i>целиком</span>
-            <span><i class="ph ph-fire"></i>горячие</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 2 200<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div style="text-align:center;margin-top:var(--vp-s-7);">
-      <a href="menu.html" class="vp-btn vp-btn--outline vp-btn--lg"><span data-i18n="prod.all">Весь ассортимент →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ GALLERY ═════ -->
-<section id="gallery" class="vp-section">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="gal.eyebrow">Галерея</span>
-      <h2 class="vp-section-head__title" data-i18n="gal.title">Съедобное искусство</h2>
-      <p class="vp-section-head__lead" data-i18n="gal.lead">Каждый десерт — как мы его любим.</p>
-    </div>
-    <div class="vp-gallery vp-reveal">
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1563729784474-2c36d0bfc563?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=900&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=85');"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ HOW ═════ -->
-<section id="how" class="vp-section" style="background:var(--vp-milk);">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="how.eyebrow">Как заказать</span>
-      <h2 class="vp-section-head__title" data-i18n="how.title">Всего три шага</h2>
-    </div>
-    <div class="vp-grid-3 vp-reveal">
-      <div class="vp-step">
-        <span class="vp-step__num">01</span>
-        <div><i class="ph-duotone ph-chat-circle-dots" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s1.title">Напишите нам</h3>
-        <p class="vp-step__text" data-i18n="how.s1.text">В WhatsApp, Instagram или через форму на сайте — как удобнее.</p>
-      </div>
-      <div class="vp-step">
-        <span class="vp-step__num">02</span>
-        <div><i class="ph-duotone ph-cake" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s2.title">Выберите десерт</h3>
-        <p class="vp-step__text" data-i18n="how.s2.text">Мы подскажем по меню, срокам изготовления и доставке.</p>
-      </div>
-      <div class="vp-step">
-        <span class="vp-step__num">03</span>
-        <div><i class="ph-duotone ph-package" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s3.title">Получите заказ</h3>
-        <p class="vp-step__text" data-i18n="how.s3.text">Самовывоз или доставка курьером по Астане — в день заказа.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ REVIEWS ═════ -->
-<section id="reviews" class="vp-section">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="rev.eyebrow">Отзывы</span>
-      <h2 class="vp-section-head__title" data-i18n="rev.title">Нам доверяют вкус</h2>
-    </div>
-    <div class="vp-grid-3 vp-reveal">
-      <blockquote class="vp-rcard">
-        <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">Заказывали торт на день рождения — все в восторге! Вкусно, красиво и чувствуется, что всё натуральное. Будем заказывать ещё.</p>
-        <footer class="vp-rcard__author">
-          <div class="vp-rcard__avatar">А</div>
-          <div class="vp-rcard__meta"><strong>Анна</strong><span>Астана, март 2026</span></div>
-        </footer>
-      </blockquote>
-      <blockquote class="vp-rcard">
-        <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">Наконец-то место, где можно брать десерты детям без страха за состав. Ребёнок уплетает за обе щёки — и это главный отзыв.</p>
-        <footer class="vp-rcard__author">
-          <div class="vp-rcard__avatar">М</div>
-          <div class="vp-rcard__meta"><strong>Мария</strong><span>Астана, февраль 2026</span></div>
-        </footer>
-      </blockquote>
-      <blockquote class="vp-rcard">
-        <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">ПП-десерты действительно вкусные и без лишнего сахара. Заказываю регулярно для себя и семьи, доставка всегда вовремя.</p>
-        <footer class="vp-rcard__author">
-          <div class="vp-rcard__avatar">Е</div>
-          <div class="vp-rcard__meta"><strong>Елена</strong><span>Астана, январь 2026</span></div>
-        </footer>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ CTA ═════ -->
-<section class="vp-section" style="padding-block:var(--vp-s-8);">
-  <div class="vp-container">
-    <div class="vp-cta-blk vp-reveal">
-      <span class="vp-eyebrow" style="color:var(--vp-sage-100);" data-i18n="cta2.title">Готовы попробовать?</span>
-      <h2 data-i18n="cta2.title">Готовы попробовать?</h2>
-      <p data-i18n="cta2.lead">Оформите заказ на сайте — мы свяжемся для подтверждения в течение 15 минут.</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--vp-s-3);">
-        <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-        <a href="#" data-whatsapp class="vp-btn vp-btn--outline vp-btn--lg"><i class="ph ph-whatsapp-logo"></i><span data-i18n="cta.order_wa">Заказать в WhatsApp</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ CONTACTS ═════ -->
-<section id="contacts" class="vp-section" style="background:var(--vp-milk);">
-  <div class="vp-container">
-    <div class="vp-section-head vp-reveal">
-      <span class="vp-eyebrow" data-i18n="contacts.eyebrow">Контакты</span>
-      <h2 class="vp-section-head__title" data-i18n="contacts.title">Мы здесь — пишите</h2>
-    </div>
-
-    <div class="vp-contacts-grid vp-reveal">
-      <div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-whatsapp-logo"></i>
-          <div><small>WhatsApp</small><strong><a href="#" data-whatsapp>+7 700 123 45 67</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-instagram-logo"></i>
-          <div><small>Instagram</small><strong><a href="https://instagram.com/vkusno_polezno_astana" target="_blank">@vkusno_polezno_astana</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-tiktok-logo"></i>
-          <div><small>TikTok</small><strong><a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank">@vkusno_polezno_ast</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-map-pin"></i>
-          <div><small data-i18n="contacts.eyebrow">Контакты</small><strong data-i18n="contacts.address">Астана, доставка по городу</strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-clock"></i>
-          <div><small>Часы</small><strong data-i18n="contacts.hours">Ежедневно, 9:00 – 21:00</strong></div>
-        </div>
-
-        <div style="margin-top:var(--vp-s-6);padding:var(--vp-s-5);background:var(--vp-white);border:1px solid var(--vp-line);border-radius:var(--vp-r-lg);">
-          <p style="margin:0 0 var(--vp-s-4);font-size:0.9375rem;color:var(--vp-ink-2);" data-i18n="contacts.form.intro">Или оставьте заявку — мы перезвоним:</p>
-          <form>
-            <label class="vp-field">
-              <div class="vp-field__label"><span data-i18n="form.name">Имя</span></div>
-              <input class="vp-input" type="text" data-i18n-ph="form.name" placeholder="Имя">
-            </label>
-            <label class="vp-field">
-              <div class="vp-field__label"><span data-i18n="form.phone">Телефон</span></div>
-              <input class="vp-input" type="tel" placeholder="+7 (___) ___-__-__">
-            </label>
-            <button type="button" class="vp-btn vp-btn--primary vp-btn--block" data-whatsapp>
-              <i class="ph ph-paper-plane-tilt"></i><span data-i18n="form.send">Отправить заявку</span>
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="vp-map">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=71.35,51.1,71.5,51.2&layer=mapnik" title="Астана"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
-<!-- ═════ FOOTER ═════ -->
 <footer class="vp-footer">
   <div class="vp-container">
     <div class="vp-footer__grid">
       <div>
         <h3 class="vp-footer__brand">Vkusno Polezno</h3>
         <p class="vp-footer__tag" data-i18n="footer.tag">Полезные десерты в Астане. Натуральные ингредиенты, ручная работа, доставка в день заказа.</p>
-        <div class="vp-footer__social">
-          <a href="https://instagram.com/vkusno_polezno_astana" aria-label="Instagram" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-          <a href="https://tiktok.com/@vkusno_polezno_ast" aria-label="TikTok" target="_blank"><i class="ph ph-tiktok-logo"></i></a>
-          <a href="#" aria-label="WhatsApp" data-whatsapp><i class="ph ph-whatsapp-logo"></i></a>
-        </div>
       </div>
       <div>
-        <h4 data-i18n="footer.menu">Ассортимент</h4>
+        <h4>Design System</h4>
         <ul>
-          <li><a href="menu.html#cakes" data-i18n="cat.cakes">Торты</a></li>
-          <li><a href="menu.html#desserts" data-i18n="cat.desserts">Десерты</a></li>
-          <li><a href="menu.html#bread" data-i18n="cat.bread">Хлеб</a></li>
-          <li><a href="menu.html#pies" data-i18n="cat.pies">Пироги</a></li>
+          <li><a href="#colors">Цвет</a></li>
+          <li><a href="#type">Типографика</a></li>
+          <li><a href="#space">Пространство</a></li>
         </ul>
       </div>
       <div>
-        <h4 data-i18n="footer.company">Компания</h4>
+        <h4>Компоненты</h4>
         <ul>
-          <li><a href="#about" data-i18n="nav.about">О нас</a></li>
-          <li><a href="#how" data-i18n="how.eyebrow">Как заказать</a></li>
-          <li><a href="#reviews" data-i18n="nav.reviews">Отзывы</a></li>
-          <li><a href="design-system.html">Design system</a></li>
+          <li><a href="#buttons">Кнопки</a></li>
+          <li><a href="#forms">Поля</a></li>
+          <li><a href="#cards">Карточки</a></li>
+          <li><a href="#icons">Иконки</a></li>
         </ul>
       </div>
       <div>
-        <h4 data-i18n="footer.follow">Соцсети</h4>
+        <h4>Сайт</h4>
         <ul>
-          <li><a href="#" data-whatsapp>WhatsApp</a></li>
-          <li><a href="https://instagram.com/vkusno_polezno_astana" target="_blank">Instagram</a></li>
-          <li><a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank">TikTok</a></li>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="menu.html">Ассортимент</a></li>
+          <li><a href="order.html">Заказ</a></li>
+          <li><a href="product.html">Товар</a></li>
         </ul>
       </div>
     </div>
     <div class="vp-footer__bottom">
-      <span data-i18n="footer.rights">© 2026 Vkusno Polezno Astana. Все права защищены.</span>
-      <span data-i18n="footer.made">Полезно • Вкусно • По любви</span>
+      <span>© 2026 Vkusno Polezno Astana · Design System v1.0</span>
+      <span>Полезно • Вкусно • По любви</span>
     </div>
   </div>
 </footer>
 
-<!-- ═════ TWEAKS PANEL ═════ -->
-<aside class="vp-tweaks" id="tweaks">
-  <h3>Tweaks</h3>
-  <div class="vp-tweaks__row">
-    <label>Hero layout</label>
-    <div class="vp-tweaks__seg" data-tw="hero">
-      <button data-val="a" class="is-active">A · Split</button>
-      <button data-val="b">B · Full</button>
-      <button data-val="c">C · Mag</button>
-    </div>
-  </div>
-  <div class="vp-tweaks__row">
-    <label>Icons</label>
-    <div class="vp-tweaks__seg" data-tw="icons">
-      <button data-val="on" class="is-active">On</button>
-      <button data-val="off">Off</button>
-    </div>
-  </div>
-</aside>
+<script>
+// Sidebar active-section highlight
+const links = document.querySelectorAll('.vp-ds-sidebar a');
+const sections = document.querySelectorAll('.vp-ds-section');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      const id = en.target.id;
+      links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => io.observe(s));
+</script>
 
 <script>
 /* ============================================
@@ -1975,42 +1911,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-</script>
-<script>
-  // Tweaks defaults
-  const VP_TWEAKS = /*EDITMODE-BEGIN*/{
-    "hero": "a",
-    "icons": "on"
-  }/*EDITMODE-END*/;
-
-  // Apply initial tweaks
-  Object.entries(VP_TWEAKS).forEach(([k,v]) => document.body.setAttribute("data-"+k, v));
-
-  // Edit-mode host protocol
-  window.addEventListener("message", (e) => {
-    if (!e.data) return;
-    if (e.data.type === "__activate_edit_mode") document.getElementById("tweaks").classList.add("is-open");
-    if (e.data.type === "__deactivate_edit_mode") document.getElementById("tweaks").classList.remove("is-open");
-  });
-  window.parent.postMessage({type: "__edit_mode_available"}, "*");
-
-  // Tweak buttons
-  document.querySelectorAll(".vp-tweaks__seg").forEach(seg => {
-    const key = seg.dataset.tw;
-    seg.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        seg.querySelectorAll("button").forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        const val = btn.dataset.val;
-        document.body.setAttribute("data-"+key, val);
-        VP_TWEAKS[key] = val;
-        window.parent.postMessage({type: "__edit_mode_set_keys", edits: {[key]: val}}, "*");
-      });
-    });
-    // Init buttons from current
-    const current = document.body.getAttribute("data-"+key);
-    seg.querySelectorAll("button").forEach(b => b.classList.toggle("is-active", b.dataset.val === current));
-  });
 </script>
 </body>
 </html>

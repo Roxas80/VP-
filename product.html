@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vkusno Polezno Astana — Полезные десерты</title>
-<meta name="description" content="Полезные десерты в Астане. Натуральные ингредиенты, ручная работа, доставка в день заказа.">
+<title>Торт «Медовик» · Vkusno Polezno Astana</title>
+<meta name="description" content="Классический медовик ручной работы. Натуральный мёд, фермерская сметана, без искусственных добавок.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>/* ============================================
    Vkusno Polezno — Design tokens
    Light, clean food, premium minimalism
@@ -304,10 +305,10 @@ button { font: inherit; cursor: pointer; }
   transition: opacity 600ms var(--vp-ease-out), transform 600ms var(--vp-ease-out);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .js-ready .vp-reveal:not(.is-visible) {
-    /* animation only if the JS has explicitly marked it before-view; see main.js */
+  .js-ready .vp-reveal {
+    opacity: 0;
+    transform: translateY(16px);
   }
-  .js-ready .vp-reveal.vp-reveal--pending { opacity: 0; transform: translateY(16px); }
   .js-ready .vp-reveal.is-visible { opacity: 1; transform: none; }
 }
 </style>
@@ -736,328 +737,252 @@ button { font: inherit; cursor: pointer; }
   to   { transform: translateX(-50%); }
 }
 </style>
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>
-/* ─── Hero variant A: Editorial split ─── */
-.vp-hero-a {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 92vh;
-  gap: 0;
+/* ── Breadcrumb ── */
+.vp-crumbs {
+  padding-block: var(--vp-s-5) 0;
+  font-size: 0.8125rem; color: var(--vp-ink-3);
 }
-.vp-hero-a__copy {
-  padding: var(--vp-s-8) 0 var(--vp-s-8);
-  display: flex; flex-direction: column; justify-content: center;
-  gap: var(--vp-s-5);
-}
-.vp-hero-a__title {
-  font-family: var(--vp-serif);
-  font-size: var(--vp-t-display);
-  line-height: var(--vp-lh-display);
-  letter-spacing: var(--vp-track-tight);
-  font-weight: 400;
-  color: var(--vp-ink);
-  margin: 0;
-  font-variation-settings: "SOFT" 40, "opsz" 144;
-}
-.vp-hero-a__title em {
-  font-style: italic; color: var(--vp-sage-600);
-  font-variation-settings: "SOFT" 100, "opsz" 144;
-}
-.vp-hero-a__sub { color: var(--vp-ink-2); max-width: 46ch; font-size: var(--vp-t-body-lg); margin: 0; }
-.vp-hero-a__ctas { display: flex; flex-wrap: wrap; gap: var(--vp-s-3); }
-.vp-hero-a__stats { display: flex; flex-wrap: wrap; gap: var(--vp-s-5) var(--vp-s-7); padding-top: var(--vp-s-5); border-top: 1px solid var(--vp-line); }
-.vp-hero-a__stat { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--vp-ink-2); }
-.vp-hero-a__stat i { color: var(--vp-sage-600); font-size: 1.2rem; }
-.vp-hero-a__media {
-  position: relative; min-height: 420px;
-  background-image: url("https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1400&q=85");
-  background-size: cover; background-position: center;
-}
-.vp-hero-a__media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(42,39,36,0.25) 100%);
-}
-.vp-hero-a__badge {
-  position: absolute; right: var(--vp-s-6); top: var(--vp-s-6);
-  background: var(--vp-paper);
-  padding: var(--vp-s-4) var(--vp-s-5);
-  border-radius: var(--vp-r-lg);
-  box-shadow: var(--vp-shadow-md);
-  z-index: 1;
-  display: flex; flex-direction: column; gap: 2px;
-  max-width: 210px;
-}
-.vp-hero-a__badge strong { font-family: var(--vp-serif); font-size: 1.25rem; font-weight: 400; font-variation-settings: "SOFT" 100, "opsz" 72; }
-.vp-hero-a__badge span { font-size: 0.8125rem; color: var(--vp-ink-3); }
-@media (min-width: 960px) {
-  .vp-hero-a { grid-template-columns: 1.05fr 1fr; }
-  .vp-hero-a__copy { padding-right: var(--vp-s-8); }
-  .vp-hero-a__media { min-height: 0; }
-}
+.vp-crumbs a { color: var(--vp-ink-2); }
+.vp-crumbs a:hover { color: var(--vp-ink); }
+.vp-crumbs span { margin-inline: 8px; color: var(--vp-ink-4); }
 
-/* ─── Hero variant B: Full-bleed with floating card ─── */
-.vp-hero-b {
-  position: relative; min-height: 92vh;
-  background-image:
-    linear-gradient(180deg, rgba(251, 248, 243, 0.55) 0%, rgba(251, 248, 243, 0.15) 45%, rgba(42, 39, 36, 0.45) 100%),
-    url("https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=1800&q=85");
-  background-size: cover;
-  background-position: center;
-  display: flex; align-items: flex-end;
-  padding-block: var(--vp-s-9) var(--vp-s-8);
-  color: var(--vp-paper);
+/* ── Product layout ── */
+.vp-product {
+  padding-block: var(--vp-s-6) var(--vp-s-8);
 }
-.vp-hero-b__card {
-  background: var(--vp-paper);
-  color: var(--vp-ink);
-  padding: var(--vp-s-7) var(--vp-s-7) var(--vp-s-6);
-  border-radius: var(--vp-r-xl);
-  max-width: 640px;
-  display: flex; flex-direction: column; gap: var(--vp-s-5);
-  box-shadow: var(--vp-shadow-xl);
-}
-.vp-hero-b__title {
-  font-family: var(--vp-serif); font-size: var(--vp-t-h1);
-  line-height: var(--vp-lh-heading); letter-spacing: var(--vp-track-tight);
-  font-weight: 400; margin: 0;
-  font-variation-settings: "SOFT" 50, "opsz" 100;
-}
-.vp-hero-b__title em { color: var(--vp-sage-600); font-style: italic; }
-.vp-hero-b__sub { margin: 0; color: var(--vp-ink-2); font-size: var(--vp-t-body-lg); }
-.vp-hero-b__ctas { display: flex; gap: var(--vp-s-3); flex-wrap: wrap; }
-.vp-hero-b__orbit {
-  position: absolute; right: 5%; top: 20%;
-  width: 140px; height: 140px; border-radius: 50%;
-  background: var(--vp-paper);
-  color: var(--vp-ink);
-  display: grid; place-items: center;
-  font-family: var(--vp-serif);
-  text-align: center; padding: var(--vp-s-3);
-  font-size: 0.875rem; line-height: 1.3;
-  transform: rotate(-8deg);
-  box-shadow: var(--vp-shadow-lg);
-  font-variation-settings: "SOFT" 100;
-}
-.vp-hero-b__orbit strong { display: block; font-size: 1.6rem; font-variation-settings: "SOFT" 100, "opsz" 72; }
-@media (max-width: 720px) {
-  .vp-hero-b__orbit { width: 100px; height: 100px; font-size: 0.75rem; right: 5%; top: 10%; }
-  .vp-hero-b__orbit strong { font-size: 1.2rem; }
-}
-
-/* ─── Hero variant C: Magazine / editorial ─── */
-.vp-hero-c {
-  padding-block: var(--vp-s-8) var(--vp-s-8);
-  background: var(--vp-paper);
-}
-.vp-hero-c__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--vp-s-6);
-  align-items: center;
-}
-@media (min-width: 960px) {
-  .vp-hero-c__grid { grid-template-columns: 1fr 1.2fr 1fr; gap: var(--vp-s-6); }
-}
-.vp-hero-c__tile {
-  border-radius: var(--vp-r-lg);
-  aspect-ratio: 3/4;
-  background-size: cover; background-position: center;
-  box-shadow: var(--vp-shadow-sm);
-}
-.vp-hero-c__tile--a {
-  background-image: url("https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=700&q=85");
-}
-.vp-hero-c__tile--b {
-  background-image: url("https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85");
-  aspect-ratio: 4/5;
-}
-.vp-hero-c__center {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  gap: var(--vp-s-5);
-  padding: var(--vp-s-5);
-}
-.vp-hero-c__title {
-  font-family: var(--vp-serif); font-size: var(--vp-t-display);
-  line-height: 0.98; letter-spacing: -0.025em;
-  font-weight: 400; margin: 0;
-  font-variation-settings: "SOFT" 30, "opsz" 144;
-}
-.vp-hero-c__title em { color: var(--vp-sage-600); font-style: italic; font-variation-settings: "SOFT" 100, "opsz" 144; }
-.vp-hero-c__sub { color: var(--vp-ink-2); font-size: var(--vp-t-body-lg); max-width: 40ch; margin: 0; }
-.vp-hero-c__ctas { display: flex; gap: var(--vp-s-3); flex-wrap: wrap; justify-content: center; }
-.vp-hero-c__ornament {
-  display: inline-flex; align-items: center; gap: var(--vp-s-3);
-  font-family: var(--vp-serif); font-style: italic; color: var(--vp-cocoa-500);
-  font-size: 1rem;
-}
-.vp-hero-c__ornament hr { width: 32px; height: 1px; background: var(--vp-line-strong); border: 0; }
-
-/* ─── Split product showcase ─── */
-.vp-showcase {
-  background: var(--vp-milk);
-  padding-block: var(--vp-section-y);
-}
-.vp-showcase__tabs {
-  display: flex; gap: 6px; flex-wrap: wrap;
-  padding: 5px;
-  background: var(--vp-white);
-  border: 1px solid var(--vp-line);
-  border-radius: var(--vp-r-pill);
-  width: fit-content;
-  margin-bottom: var(--vp-s-6);
-}
-.vp-showcase__tab {
-  padding: 0.6rem 1.125rem; font-size: 0.875rem; font-weight: 600;
-  color: var(--vp-ink-2); background: transparent; border: 0;
-  border-radius: var(--vp-r-pill);
-  transition: all var(--vp-dur) var(--vp-ease);
-}
-.vp-showcase__tab.is-active { background: var(--vp-ink); color: var(--vp-paper); }
-
-/* ─── About block ─── */
-.vp-about-blk {
+.vp-product__grid {
   display: grid; gap: var(--vp-s-7);
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: start;
 }
 @media (min-width: 960px) {
-  .vp-about-blk { grid-template-columns: 1fr 1.1fr; gap: var(--vp-s-9); }
+  .vp-product__grid { grid-template-columns: 1.05fr 1fr; gap: var(--vp-s-8); }
 }
-.vp-about-blk__media {
+
+/* Gallery */
+.vp-gal {
+  display: grid; gap: var(--vp-s-3);
+  grid-template-columns: 88px 1fr;
+}
+@media (max-width: 640px) {
+  .vp-gal { grid-template-columns: 1fr; grid-template-rows: 1fr 80px; }
+}
+.vp-gal__main {
   aspect-ratio: 4/5;
   border-radius: var(--vp-r-xl);
-  background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=85") center/cover;
-  position: relative;
+  background: var(--vp-cream) center/cover;
+  position: relative; overflow: hidden;
+  order: 2;
 }
-.vp-about-blk__stamp {
-  position: absolute; right: -20px; bottom: -20px;
-  width: 170px; height: 170px;
-  background: var(--vp-sage-500); color: var(--vp-paper);
-  border-radius: 50%;
-  display: grid; place-items: center; text-align: center;
-  font-family: var(--vp-serif); font-size: 1.15rem; line-height: 1.2;
-  padding: var(--vp-s-4);
-  font-variation-settings: "SOFT" 100, "opsz" 72;
-  transform: rotate(-6deg);
-  box-shadow: var(--vp-shadow-md);
+.vp-gal__badges { position: absolute; top: var(--vp-s-5); left: var(--vp-s-5); display: flex; gap: 6px; }
+.vp-gal__badge {
+  background: var(--vp-paper); color: var(--vp-sage-700);
+  font-size: 0.6875rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; padding: 5px 10px; border-radius: var(--vp-r-pill);
+  box-shadow: var(--vp-shadow-xs);
 }
-.vp-about-blk__stamp strong { display: block; font-size: 2.4rem; margin-bottom: 4px; font-variation-settings: "SOFT" 100, "opsz" 144; }
-
-/* ─── CTA (earthy sage block) ─── */
-.vp-cta-blk {
-  background:
-    radial-gradient(1200px 400px at 80% 0%, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(140deg, var(--vp-sage-600) 0%, var(--vp-sage-ink) 100%);
-  color: var(--vp-paper);
-  border-radius: var(--vp-r-xl);
-  padding: var(--vp-s-9) var(--vp-s-7);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.vp-cta-blk::before {
-  content: ""; position: absolute; inset: -40px;
-  background: radial-gradient(circle at 20% 120%, rgba(251, 248, 243, 0.08), transparent 40%);
-  pointer-events: none;
-}
-.vp-cta-blk h2 {
-  font-family: var(--vp-serif); font-size: var(--vp-t-h1);
-  margin: 0 0 var(--vp-s-3); font-weight: 400; letter-spacing: var(--vp-track-tight);
-  font-variation-settings: "SOFT" 60, "opsz" 100;
-}
-.vp-cta-blk p { margin: 0 auto var(--vp-s-6); max-width: 520px; color: rgba(251, 248, 243, 0.85); font-size: var(--vp-t-body-lg); }
-.vp-cta-blk .vp-btn--primary { --bg: var(--vp-paper); --fg: var(--vp-sage-ink); }
-.vp-cta-blk .vp-btn--primary:hover { --bg: var(--vp-white); }
-.vp-cta-blk .vp-btn--outline { --bd: rgba(251, 248, 243, 0.4); --fg: var(--vp-paper); }
-.vp-cta-blk .vp-btn--outline:hover { --bg: var(--vp-paper); --fg: var(--vp-sage-ink); --bd: var(--vp-paper); }
-
-/* ─── Contacts block ─── */
-.vp-contacts-grid {
-  display: grid; gap: var(--vp-s-6);
-  grid-template-columns: 1fr;
-}
-@media (min-width: 900px) {
-  .vp-contacts-grid { grid-template-columns: 1fr 1.2fr; }
-}
-.vp-contact-row {
-  display: flex; align-items: center; gap: var(--vp-s-4);
-  padding: var(--vp-s-4) 0; border-bottom: 1px solid var(--vp-line);
-}
-.vp-contact-row:last-child { border-bottom: 0; }
-.vp-contact-row i {
+.vp-gal__zoom {
+  position: absolute; right: var(--vp-s-5); bottom: var(--vp-s-5);
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--vp-sage-50); color: var(--vp-sage-600);
-  display: grid; place-items: center; font-size: 1.25rem;
-  flex: none;
+  background: var(--vp-paper); color: var(--vp-ink); border: 0;
+  display: grid; place-items: center; font-size: 1.125rem;
+  box-shadow: var(--vp-shadow-md);
+  cursor: pointer; transition: transform var(--vp-dur) var(--vp-ease);
 }
-.vp-contact-row small { display: block; color: var(--vp-ink-3); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 2px; }
-.vp-contact-row strong { font-weight: 600; color: var(--vp-ink); font-size: 1rem; }
-
-.vp-map {
-  aspect-ratio: 1.3;
-  background: var(--vp-cream);
-  border-radius: var(--vp-r-lg);
-  overflow: hidden;
-  border: 1px solid var(--vp-line);
+.vp-gal__zoom:hover { transform: scale(1.08); }
+.vp-gal__thumbs {
+  display: flex; flex-direction: column; gap: 8px;
+  order: 1;
 }
-.vp-map iframe { width: 100%; height: 100%; border: 0; display: block; }
-
-/* ─── Tweaks panel ─── */
-.vp-tweaks {
-  position: fixed; right: 20px; bottom: 20px; z-index: 100;
-  background: var(--vp-white);
-  border: 1px solid var(--vp-line);
-  border-radius: var(--vp-r-lg);
-  box-shadow: var(--vp-shadow-xl);
-  padding: var(--vp-s-5);
-  width: 280px;
-  display: none;
+@media (max-width: 640px) {
+  .vp-gal__thumbs { flex-direction: row; }
 }
-.vp-tweaks.is-open { display: block; }
-.vp-tweaks h3 { margin: 0 0 var(--vp-s-4); font-family: var(--vp-serif); font-size: 1.125rem; font-weight: 400; }
-.vp-tweaks__row { margin-bottom: var(--vp-s-4); }
-.vp-tweaks__row label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--vp-ink-3); margin-bottom: 8px; }
-.vp-tweaks__seg {
-  display: flex; background: var(--vp-milk); border: 1px solid var(--vp-line);
-  border-radius: var(--vp-r-sm); padding: 3px;
+.vp-gal__thumb {
+  width: 88px; aspect-ratio: 1;
+  border-radius: var(--vp-r-md);
+  background: var(--vp-cream) center/cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--vp-dur) var(--vp-ease), opacity var(--vp-dur) var(--vp-ease);
+  opacity: 0.6;
 }
-.vp-tweaks__seg button {
-  flex: 1; padding: 8px 10px; font-size: 0.8125rem; font-weight: 600;
-  color: var(--vp-ink-2); background: transparent; border: 0;
-  border-radius: var(--vp-r-xs);
+.vp-gal__thumb.is-active { border-color: var(--vp-ink); opacity: 1; }
+.vp-gal__thumb:hover { opacity: 1; }
+
+/* Info column */
+.vp-pinfo__title {
+  font-family: var(--vp-serif); font-size: var(--vp-t-h1);
+  font-weight: 400; margin: var(--vp-s-3) 0 var(--vp-s-3);
+  font-variation-settings: "SOFT" 50, "opsz" 100;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
-.vp-tweaks__seg button.is-active { background: var(--vp-ink); color: var(--vp-paper); }
-
-/* Hero visibility */
-.vp-hero-slot { display: none; }
-body[data-hero="a"] .vp-hero-slot[data-hero="a"],
-body[data-hero="b"] .vp-hero-slot[data-hero="b"],
-body[data-hero="c"] .vp-hero-slot[data-hero="c"] { display: block; }
-
-/* Icon-off mode */
-body[data-icons="off"] .ph { display: none !important; }
-
-/* Scroll cue */
-.vp-scroll-cue {
+.vp-pinfo__title em { font-style: italic; color: var(--vp-sage-600); }
+.vp-pinfo__sub {
+  color: var(--vp-ink-2); font-size: var(--vp-t-body-lg);
+  max-width: 50ch; margin: 0 0 var(--vp-s-5);
+}
+.vp-pinfo__rating {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--vp-ink-3);
+  font-size: 0.875rem; color: var(--vp-ink-3);
+  margin-bottom: var(--vp-s-5);
 }
-.vp-scroll-cue::after {
-  content: ""; width: 40px; height: 1px; background: currentColor;
-  animation: vp-cue 1.8s ease-in-out infinite;
-  transform-origin: left;
+.vp-pinfo__rating .stars { color: var(--vp-honey); letter-spacing: 0.1em; }
+.vp-pinfo__price-row {
+  display: flex; align-items: baseline; gap: var(--vp-s-3);
+  padding: var(--vp-s-5) 0;
+  border-block: 1px solid var(--vp-line);
+  margin-bottom: var(--vp-s-5);
 }
-@keyframes vp-cue {
-  0%, 100% { transform: scaleX(0.4); opacity: 0.5; }
-  50% { transform: scaleX(1); opacity: 1; }
+.vp-pinfo__price {
+  font-family: var(--vp-serif); font-size: 2.75rem;
+  color: var(--vp-ink); line-height: 1;
+  font-variation-settings: "SOFT" 100, "opsz" 72;
+}
+.vp-pinfo__price small { font-family: var(--vp-sans); font-size: 1rem; color: var(--vp-ink-3); margin-left: 6px; font-weight: 500; }
+.vp-pinfo__perkg { font-size: 0.875rem; color: var(--vp-ink-3); }
+
+/* Picker (weight, layers) */
+.vp-picker { margin-bottom: var(--vp-s-5); }
+.vp-picker__label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--vp-ink-3); margin-bottom: 10px;
+}
+.vp-picker__label strong { color: var(--vp-ink); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 0.875rem; }
+.vp-picker__opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.vp-picker__opt {
+  position: relative;
+  padding: 0.625rem 1rem;
+  background: var(--vp-white);
+  border: 1.5px solid var(--vp-line);
+  border-radius: var(--vp-r-pill);
+  cursor: pointer;
+  font-size: 0.875rem; font-weight: 600; color: var(--vp-ink);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all var(--vp-dur) var(--vp-ease);
+}
+.vp-picker__opt input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.vp-picker__opt:hover { border-color: var(--vp-sage-300); }
+.vp-picker__opt:has(input:checked) {
+  background: var(--vp-ink); color: var(--vp-paper); border-color: var(--vp-ink);
+}
+.vp-picker__opt small { color: var(--vp-ink-3); font-weight: 500; }
+.vp-picker__opt:has(input:checked) small { color: rgba(251,248,243,0.7); }
+
+/* Decor swatches */
+.vp-swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+.vp-swatch {
+  position: relative;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--vp-dur) var(--vp-ease);
+}
+.vp-swatch input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.vp-swatch:hover { transform: scale(1.06); }
+.vp-swatch:has(input:checked) { border-color: var(--vp-ink); padding: 2px; }
+
+/* Cart row */
+.vp-cart-row {
+  display: grid; gap: var(--vp-s-3);
+  grid-template-columns: auto 1fr;
+  margin-bottom: var(--vp-s-4);
+}
+.vp-qty {
+  display: inline-flex; align-items: center;
+  background: var(--vp-white);
+  border: 1.5px solid var(--vp-line);
+  border-radius: var(--vp-r-pill);
+  height: 56px;
+}
+.vp-qty button {
+  width: 44px; height: 100%; background: transparent; border: 0;
+  font-size: 1.25rem; color: var(--vp-ink-2);
+  display: grid; place-items: center;
+  transition: color var(--vp-dur) var(--vp-ease);
+}
+.vp-qty button:hover { color: var(--vp-ink); }
+.vp-qty input {
+  width: 48px; text-align: center; border: 0; font: inherit;
+  font-weight: 600; background: transparent; color: var(--vp-ink);
+  -moz-appearance: textfield;
+}
+.vp-qty input::-webkit-outer-spin-button,
+.vp-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Tabs (description / ingredients / delivery) */
+.vp-tabs {
+  margin-top: var(--vp-s-7);
+  border-top: 1px solid var(--vp-line);
+  padding-top: var(--vp-s-5);
+}
+.vp-tabs__bar {
+  display: flex; gap: var(--vp-s-5); flex-wrap: wrap;
+  margin-bottom: var(--vp-s-5);
+}
+.vp-tabs__btn {
+  background: transparent; border: 0;
+  font-size: 0.9375rem; font-weight: 600; color: var(--vp-ink-3);
+  padding: 8px 0; position: relative;
+  transition: color var(--vp-dur) var(--vp-ease);
+  cursor: pointer;
+}
+.vp-tabs__btn::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--vp-ink); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--vp-dur) var(--vp-ease);
+}
+.vp-tabs__btn.is-active { color: var(--vp-ink); }
+.vp-tabs__btn.is-active::after { transform: scaleX(1); }
+.vp-tabs__panel { display: none; color: var(--vp-ink-2); line-height: 1.7; max-width: 60ch; }
+.vp-tabs__panel.is-active { display: block; }
+.vp-tabs__panel ul { padding-left: 1.25rem; margin: var(--vp-s-3) 0; }
+.vp-tabs__panel li { margin-bottom: 6px; }
+
+/* Nutrition */
+.vp-nutri {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--vp-line);
+  border: 1px solid var(--vp-line);
+  border-radius: var(--vp-r-md);
+  overflow: hidden;
+  margin-top: var(--vp-s-4);
+}
+.vp-nutri__cell {
+  background: var(--vp-white);
+  padding: var(--vp-s-4);
+  text-align: center;
+}
+.vp-nutri__val {
+  font-family: var(--vp-serif); font-size: 1.5rem; color: var(--vp-ink);
+  font-variation-settings: "SOFT" 100, "opsz" 48;
+}
+.vp-nutri__label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--vp-ink-3); margin-top: 4px; }
+
+/* Trust list */
+.vp-trust {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: var(--vp-s-5);
+  background: var(--vp-milk);
+  border-radius: var(--vp-r-md);
+  margin-bottom: var(--vp-s-4);
+}
+.vp-trust__row { display: flex; align-items: center; gap: 12px; font-size: 0.875rem; color: var(--vp-ink-2); }
+.vp-trust__row i { color: var(--vp-sage-600); font-size: 1.125rem; }
+.vp-trust__row strong { color: var(--vp-ink); font-weight: 600; }
+
+/* Related */
+.vp-related {
+  padding-block: var(--vp-s-7) var(--vp-s-8);
+  background: var(--vp-milk);
+  border-top: 1px solid var(--vp-line);
 }
 </style>
 </head>
-<body data-hero="a" data-icons="on">
+<body>
 
-<!-- ═════ HEADER ═════ -->
 <header class="vp-header">
   <div class="vp-container vp-header__inner">
     <a href="index.html" class="vp-logo">
@@ -1065,420 +990,259 @@ body[data-icons="off"] .ph { display: none !important; }
       <span>Vkusno Polezno</span>
     </a>
     <nav class="vp-nav">
-      <a href="#about" data-i18n="nav.about">О нас</a>
+      <a href="index.html#about" data-i18n="nav.about">О нас</a>
       <a href="menu.html" data-i18n="nav.menu">Ассортимент</a>
-      <a href="#gallery" data-i18n="nav.gallery">Галерея</a>
-      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
-      <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+      <a href="index.html#gallery" data-i18n="nav.gallery">Галерея</a>
+      <a href="index.html#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="index.html#contacts" data-i18n="nav.contacts">Контакты</a>
     </nav>
     <div class="vp-header__actions">
-      <div class="vp-lang" role="tablist" aria-label="Language">
+      <div class="vp-lang">
         <button data-lang="ru" class="is-active">RU</button>
         <button data-lang="kz">KZ</button>
         <button data-lang="en">EN</button>
       </div>
-      <a href="order.html" class="vp-btn vp-btn--primary vp-btn--sm vp-header__cta" data-i18n="cta.order">Оформить заказ</a>
+      <a href="order.html" class="vp-btn vp-btn--primary vp-btn--sm vp-header__cta">Оформить заказ</a>
       <button type="button" class="vp-burger" aria-label="Menu"><i></i></button>
     </div>
-  </div>
-  <div class="vp-drawer">
-    <a href="#about" data-i18n="nav.about">О нас</a>
-    <a href="menu.html" data-i18n="nav.menu">Ассортимент</a>
-    <a href="#gallery" data-i18n="nav.gallery">Галерея</a>
-    <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
-    <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
-    <a href="order.html" class="vp-btn vp-btn--primary" style="justify-content:center;margin-top:var(--vp-s-4);" data-i18n="cta.order">Оформить заказ</a>
   </div>
 </header>
 
 <main>
 
-<!-- ═════ HERO (3 variants) ═════ -->
-
-<!-- Variant A: Editorial split -->
-<section class="vp-hero-slot" data-hero="a">
-  <div class="vp-container">
-    <div class="vp-hero-a">
-      <div class="vp-hero-a__copy vp-reveal">
-        <span class="vp-eyebrow" data-i18n="hero.eyebrow">Астана · с 2021</span>
-        <h1 class="vp-hero-a__title" data-i18n="hero.title">
-          Десерты, в которые влюбляются <em>с первого вкуса</em>
-        </h1>
-        <p class="vp-hero-a__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-        <div class="vp-hero-a__ctas">
-          <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-          <a href="menu.html" class="vp-btn vp-btn--outline vp-btn--lg"><span data-i18n="cta.see_menu">Смотреть ассортимент</span><i class="ph ph-arrow-right"></i></a>
-        </div>
-        <div class="vp-hero-a__stats">
-          <div class="vp-hero-a__stat"><i class="ph ph-leaf"></i><span data-i18n="hero.stat1">Свежие партии каждый день</span></div>
-          <div class="vp-hero-a__stat"><i class="ph ph-check-circle"></i><span data-i18n="hero.stat2">Без сахара-заменителя</span></div>
-          <div class="vp-hero-a__stat"><i class="ph ph-truck"></i><span data-i18n="hero.stat3">Доставка по Астане</span></div>
-        </div>
-      </div>
-      <div class="vp-hero-a__media vp-reveal">
-        <div class="vp-hero-a__badge">
-          <strong>4.9 / 5</strong>
-          <span>★★★★★ · 240+ отзывов</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Variant B: Full-bleed with floating card -->
-<section class="vp-hero-slot" data-hero="b">
-  <div class="vp-hero-b">
-    <div class="vp-container">
-      <div class="vp-hero-b__card vp-reveal">
-        <span class="vp-eyebrow" data-i18n="hero.eyebrow">Астана · с 2021</span>
-        <h1 class="vp-hero-b__title" data-i18n="hero.title">
-          Десерты, в которые влюбляются <em>с первого вкуса</em>
-        </h1>
-        <p class="vp-hero-b__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-        <div class="vp-hero-b__ctas">
-          <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-          <a href="#" class="vp-btn vp-btn--ghost vp-btn--lg" data-whatsapp><i class="ph ph-whatsapp-logo"></i><span data-i18n="hero.alt">Или напишите в WhatsApp</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="vp-hero-b__orbit">
-      Свежая выпечка<br><strong>каждый день</strong>
-    </div>
-  </div>
-</section>
-
-<!-- Variant C: Magazine editorial -->
-<section class="vp-hero-slot" data-hero="c">
-  <div class="vp-hero-c">
-    <div class="vp-container">
-      <div class="vp-hero-c__grid">
-        <div class="vp-hero-c__tile vp-hero-c__tile--a vp-reveal"></div>
-        <div class="vp-hero-c__center vp-reveal">
-          <span class="vp-hero-c__ornament"><hr>Vkusno Polezno Astana<hr></span>
-          <h1 class="vp-hero-c__title" data-i18n="hero.title">
-            Десерты, <em>в которые</em> влюбляются с первого вкуса
-          </h1>
-          <p class="vp-hero-c__sub" data-i18n="hero.subtitle">Ручная работа, натуральные ингредиенты, без искусственных добавок.</p>
-          <div class="vp-hero-c__ctas">
-            <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><span data-i18n="cta.order">Оформить заказ</span><i class="ph ph-arrow-right"></i></a>
-            <a href="menu.html" class="vp-btn vp-btn--ghost vp-btn--lg"><span data-i18n="cta.see_menu">Смотреть ассортимент</span></a>
-          </div>
-          <span class="vp-scroll-cue">scroll</span>
-        </div>
-        <div class="vp-hero-c__tile vp-hero-c__tile--b vp-reveal"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ MARQUEE ═════ -->
-<div class="vp-marquee" aria-hidden="true">
-  <div class="vp-marquee__track">
-    <!-- doubled for seamless loop -->
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> натуральные ингредиенты</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> ручная работа</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> без искусственных добавок</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> свежая выпечка</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> доставка по Астане</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> с любовью</span>
-
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> натуральные ингредиенты</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> ручная работа</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> без искусственных добавок</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> свежая выпечка</span>
-    <span class="vp-marquee__item"><i class="ph ph-leaf"></i> доставка по Астане</span>
-    <span class="vp-marquee__item"><i class="ph ph-asterisk"></i> с любовью</span>
-  </div>
+<div class="vp-container">
+  <nav class="vp-crumbs">
+    <a href="index.html">Главная</a><span>/</span><a href="menu.html">Ассортимент</a><span>/</span><a href="menu.html#cakes">Торты</a><span>/</span>Медовик
+  </nav>
 </div>
 
-<!-- ═════ ABOUT ═════ -->
-<section id="about" class="vp-section">
+<section class="vp-product">
   <div class="vp-container">
-    <div class="vp-about-blk">
-      <div class="vp-about-blk__media vp-reveal">
-        <div class="vp-about-blk__stamp"><strong>5</strong>лет вместе<br>с Астаной</div>
-      </div>
-      <div class="vp-reveal">
-        <span class="vp-eyebrow" data-i18n="about.eyebrow">О бренде</span>
-        <h2 class="vp-h1" style="margin:var(--vp-s-4) 0;" data-i18n="about.title">Каждый десерт — маленькая история заботы</h2>
-        <p class="vp-lead" data-i18n="about.lead">Мы создаём десерты, которые можно есть без чувства вины — из натуральных продуктов, с любовью и вниманием к каждой детали. Работаем небольшими партиями и знаем каждого поставщика лично.</p>
-        <div class="vp-grid-2" style="margin-top:var(--vp-s-6);">
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-leaf"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v1.title">Натуральные ингредиенты</h3>
-            <p class="vp-fcard__text" data-i18n="about.v1.text">Фермерское молоко, деревенские яйца, пшеница с ближайших ферм.</p>
+    <div class="vp-product__grid">
+
+      <!-- Gallery -->
+      <div class="vp-gal">
+        <div class="vp-gal__thumbs" id="thumbs">
+          <div class="vp-gal__thumb is-active" data-img="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=85"
+               style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=200&q=85');"></div>
+          <div class="vp-gal__thumb" data-img="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=900&q=85"
+               style="background-image:url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=200&q=85');"></div>
+          <div class="vp-gal__thumb" data-img="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=900&q=85"
+               style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&q=85');"></div>
+          <div class="vp-gal__thumb" data-img="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=85"
+               style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&q=85');"></div>
+        </div>
+        <div class="vp-gal__main" id="gal-main"
+             style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=85');">
+          <div class="vp-gal__badges">
+            <span class="vp-gal__badge">Хит</span>
+            <span class="vp-gal__badge">Натуральный</span>
           </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-seal-check"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v2.title">Без искусственного</h3>
-            <p class="vp-fcard__text" data-i18n="about.v2.text">Ни одного консерванта, красителя или усилителя вкуса.</p>
-          </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-sun"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v3.title">Свежие партии</h3>
-            <p class="vp-fcard__text" data-i18n="about.v3.text">Выпекаем каждое утро и доставляем в тот же день.</p>
-          </div>
-          <div class="vp-fcard">
-            <div class="vp-fcard__icon"><i class="ph-duotone ph-heart"></i></div>
-            <h3 class="vp-fcard__title" data-i18n="about.v4.title">Ручная работа</h3>
-            <p class="vp-fcard__text" data-i18n="about.v4.text">Каждый торт — декор руками мастера, никакого конвейера.</p>
-          </div>
+          <button class="vp-gal__zoom" aria-label="zoom"><i class="ph ph-arrows-out"></i></button>
         </div>
       </div>
+
+      <!-- Info -->
+      <div class="vp-pinfo">
+        <span class="vp-eyebrow">Торт · ручная работа</span>
+        <h1 class="vp-pinfo__title" data-i18n="page.product.title">Медовик <em>классический</em></h1>
+        <p class="vp-pinfo__sub">Тонкие медовые коржи на натуральном мёде, нежный сметанный крем с ванилью. Никакой химии — только то, что вы ждёте от настоящего медовика.</p>
+
+        <div class="vp-pinfo__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.9 · <a href="#reviews" style="color:var(--vp-sage-700);border-bottom:1px solid var(--vp-sage-100);">86 отзывов</a></span>
+        </div>
+
+        <div class="vp-pinfo__price-row">
+          <div class="vp-pinfo__price" id="price">7 500<small>₸</small></div>
+          <div class="vp-pinfo__perkg" id="perkg">за 1 кг · 8–10 порций</div>
+        </div>
+
+        <!-- Weight picker -->
+        <div class="vp-picker">
+          <div class="vp-picker__label"><span>Вес</span><strong id="weight-out">1 кг</strong></div>
+          <div class="vp-picker__opts" id="weight-opts">
+            <label class="vp-picker__opt"><input type="radio" name="weight" value="1" data-price="7500" data-portions="8–10 порций" checked>1 кг</label>
+            <label class="vp-picker__opt"><input type="radio" name="weight" value="1.5" data-price="11000" data-portions="12–14 порций">1.5 кг</label>
+            <label class="vp-picker__opt"><input type="radio" name="weight" value="2" data-price="14500" data-portions="16–20 порций">2 кг</label>
+            <label class="vp-picker__opt"><input type="radio" name="weight" value="3" data-price="21500" data-portions="24–30 порций">3 кг</label>
+          </div>
+        </div>
+
+        <!-- Layers -->
+        <div class="vp-picker">
+          <div class="vp-picker__label"><span>Декор</span><strong id="decor-out">Классический</strong></div>
+          <div class="vp-picker__opts">
+            <label class="vp-picker__opt"><input type="radio" name="decor" value="classic" data-name="Классический" checked>Классический</label>
+            <label class="vp-picker__opt"><input type="radio" name="decor" value="berry" data-name="С ягодами" data-add="800">С ягодами<small>+ 800 ₸</small></label>
+            <label class="vp-picker__opt"><input type="radio" name="decor" value="nuts" data-name="С орехами" data-add="500">С орехами<small>+ 500 ₸</small></label>
+            <label class="vp-picker__opt"><input type="radio" name="decor" value="chocolate" data-name="Шоколадный" data-add="600">Шоколадный<small>+ 600 ₸</small></label>
+          </div>
+        </div>
+
+        <!-- Trust block -->
+        <div class="vp-trust">
+          <div class="vp-trust__row"><i class="ph ph-clock"></i><span><strong>Срок изготовления:</strong> 24 часа после заказа</span></div>
+          <div class="vp-trust__row"><i class="ph ph-truck"></i><span><strong>Доставка:</strong> по Астане в день готовности, от 1 500 ₸</span></div>
+          <div class="vp-trust__row"><i class="ph ph-shield-check"></i><span><strong>Без предоплаты:</strong> оплата при получении</span></div>
+        </div>
+
+        <!-- Add to cart -->
+        <div class="vp-cart-row">
+          <div class="vp-qty">
+            <button type="button" data-qty="-1" aria-label="−"><i class="ph ph-minus"></i></button>
+            <input type="number" id="qty" value="1" min="1" max="20">
+            <button type="button" data-qty="+1" aria-label="+"><i class="ph ph-plus"></i></button>
+          </div>
+          <a href="order.html?cat=cakes" class="vp-btn vp-btn--primary vp-btn--lg" style="height:56px;">
+            <i class="ph ph-shopping-bag"></i><span>Оформить — <strong id="total">7 500 ₸</strong></span>
+          </a>
+        </div>
+
+        <a href="#" data-whatsapp class="vp-btn vp-btn--ghost" style="padding-inline:0;">
+          <i class="ph ph-whatsapp-logo" style="color:var(--vp-sage-600);"></i><span>Уточнить детали в WhatsApp →</span>
+        </a>
+
+        <!-- Tabs -->
+        <div class="vp-tabs">
+          <div class="vp-tabs__bar">
+            <button class="vp-tabs__btn is-active" data-tab="desc">Описание</button>
+            <button class="vp-tabs__btn" data-tab="ing">Состав</button>
+            <button class="vp-tabs__btn" data-tab="nutri">Пищевая ценность</button>
+            <button class="vp-tabs__btn" data-tab="store">Хранение</button>
+          </div>
+          <div class="vp-tabs__panel is-active" data-tab="desc">
+            <p>Медовик — наш самый любимый торт. Девять тонких коржей пропитываются ароматным сметанным кремом ровно сутки — за это время крем впитывается равномерно, и торт становится нежным и тающим во рту.</p>
+            <p>Используем только натуральные продукты: гречишный мёд от пасечников Акмолинской области, фермерскую сметану жирностью 30%, домашние яйца. Ни одного консерванта или красителя.</p>
+          </div>
+          <div class="vp-tabs__panel" data-tab="ing">
+            <p>Состав:</p>
+            <ul>
+              <li>Мука пшеничная высшего сорта</li>
+              <li>Мёд натуральный гречишный</li>
+              <li>Сметана 30% (фермерская)</li>
+              <li>Яйцо куриное</li>
+              <li>Сахар тростниковый</li>
+              <li>Масло сливочное 82.5%</li>
+              <li>Сода пищевая</li>
+              <li>Ваниль натуральная</li>
+            </ul>
+            <p style="font-size:0.8125rem;color:var(--vp-ink-3);">⚠ Содержит молочные продукты, яйца, глютен.</p>
+          </div>
+          <div class="vp-tabs__panel" data-tab="nutri">
+            <p>На 100 г готового продукта:</p>
+            <div class="vp-nutri">
+              <div class="vp-nutri__cell"><div class="vp-nutri__val">312</div><div class="vp-nutri__label">ккал</div></div>
+              <div class="vp-nutri__cell"><div class="vp-nutri__val">5.2</div><div class="vp-nutri__label">белки, г</div></div>
+              <div class="vp-nutri__cell"><div class="vp-nutri__val">14.6</div><div class="vp-nutri__label">жиры, г</div></div>
+              <div class="vp-nutri__cell"><div class="vp-nutri__val">39.8</div><div class="vp-nutri__label">углеводы, г</div></div>
+            </div>
+          </div>
+          <div class="vp-tabs__panel" data-tab="store">
+            <p>Хранить в холодильнике при температуре <strong>+2…+6 °C</strong> до <strong>72 часов</strong> с момента изготовления.</p>
+            <p>Перед подачей дайте торту 15–20 минут постоять при комнатной температуре — крем станет мягче, аромат раскроется полнее.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═════ SHOWCASE ═════ -->
-<section id="products" class="vp-showcase">
+<!-- Reviews preview -->
+<section id="reviews" class="vp-section" style="padding-block: var(--vp-s-8);">
   <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="prod.eyebrow">Наш ассортимент</span>
-      <h2 class="vp-section-head__title" data-i18n="prod.title">Что мы печём</h2>
-      <p class="vp-section-head__lead" data-i18n="prod.lead">От праздничных тортов до домашнего хлеба на закваске.</p>
+    <div class="vp-section-head">
+      <span class="vp-eyebrow">Отзывы</span>
+      <h2 class="vp-section-head__title" data-i18n="page.product.reviews.title">Что говорят о медовике</h2>
     </div>
-
-    <div class="vp-grid-4 vp-reveal">
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Хит</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.cakes">Торты</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-scales"></i>от 1 кг</span>
-            <span><i class="ph ph-clock"></i>24 ч</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 7 500<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">ПП</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.desserts">Десерты</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-cake"></i>штучно</span>
-            <span><i class="ph ph-leaf"></i>без сахара</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 650<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Закваска</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.bread">Хлеб</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-bread"></i>буханка</span>
-            <span><i class="ph ph-timer"></i>48 ч</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 1 100<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="vp-pcard">
-        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=85');">
-          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Домашние</span></div>
-          <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-        </div>
-        <div class="vp-pcard__body">
-          <h3 class="vp-pcard__title" data-i18n="cat.pies">Пироги</h3>
-          <div class="vp-pcard__meta">
-            <span><i class="ph ph-pie-chart"></i>целиком</span>
-            <span><i class="ph ph-fire"></i>горячие</span>
-          </div>
-          <div class="vp-pcard__price-row">
-            <div class="vp-pcard__price">от 2 200<small>₸</small></div>
-            <button class="vp-pcard__add" aria-label="add"><i class="ph ph-plus"></i></button>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div style="text-align:center;margin-top:var(--vp-s-7);">
-      <a href="menu.html" class="vp-btn vp-btn--outline vp-btn--lg"><span data-i18n="prod.all">Весь ассортимент →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ GALLERY ═════ -->
-<section id="gallery" class="vp-section">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="gal.eyebrow">Галерея</span>
-      <h2 class="vp-section-head__title" data-i18n="gal.title">Съедобное искусство</h2>
-      <p class="vp-section-head__lead" data-i18n="gal.lead">Каждый десерт — как мы его любим.</p>
-    </div>
-    <div class="vp-gallery vp-reveal">
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1563729784474-2c36d0bfc563?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=900&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=800&q=85');"></div>
-      <div class="vp-gallery__item" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=85');"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ HOW ═════ -->
-<section id="how" class="vp-section" style="background:var(--vp-milk);">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="how.eyebrow">Как заказать</span>
-      <h2 class="vp-section-head__title" data-i18n="how.title">Всего три шага</h2>
-    </div>
-    <div class="vp-grid-3 vp-reveal">
-      <div class="vp-step">
-        <span class="vp-step__num">01</span>
-        <div><i class="ph-duotone ph-chat-circle-dots" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s1.title">Напишите нам</h3>
-        <p class="vp-step__text" data-i18n="how.s1.text">В WhatsApp, Instagram или через форму на сайте — как удобнее.</p>
-      </div>
-      <div class="vp-step">
-        <span class="vp-step__num">02</span>
-        <div><i class="ph-duotone ph-cake" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s2.title">Выберите десерт</h3>
-        <p class="vp-step__text" data-i18n="how.s2.text">Мы подскажем по меню, срокам изготовления и доставке.</p>
-      </div>
-      <div class="vp-step">
-        <span class="vp-step__num">03</span>
-        <div><i class="ph-duotone ph-package" style="font-size:1.75rem;color:var(--vp-sage-600);"></i></div>
-        <h3 class="vp-step__title" data-i18n="how.s3.title">Получите заказ</h3>
-        <p class="vp-step__text" data-i18n="how.s3.text">Самовывоз или доставка курьером по Астане — в день заказа.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ REVIEWS ═════ -->
-<section id="reviews" class="vp-section">
-  <div class="vp-container">
-    <div class="vp-section-head vp-section-head--center vp-reveal">
-      <span class="vp-eyebrow" data-i18n="rev.eyebrow">Отзывы</span>
-      <h2 class="vp-section-head__title" data-i18n="rev.title">Нам доверяют вкус</h2>
-    </div>
-    <div class="vp-grid-3 vp-reveal">
+    <div class="vp-grid-3">
       <blockquote class="vp-rcard">
         <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">Заказывали торт на день рождения — все в восторге! Вкусно, красиво и чувствуется, что всё натуральное. Будем заказывать ещё.</p>
+        <p class="vp-rcard__text">Тот самый «бабушкин» вкус, только современный — без приторности. Брали на 30 человек, унесли всё.</p>
         <footer class="vp-rcard__author">
           <div class="vp-rcard__avatar">А</div>
-          <div class="vp-rcard__meta"><strong>Анна</strong><span>Астана, март 2026</span></div>
+          <div class="vp-rcard__meta"><strong>Айгуль</strong><span>Астана, март 2026</span></div>
         </footer>
       </blockquote>
       <blockquote class="vp-rcard">
         <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">Наконец-то место, где можно брать десерты детям без страха за состав. Ребёнок уплетает за обе щёки — и это главный отзыв.</p>
+        <p class="vp-rcard__text">Заказала с ягодами — выглядел как с обложки журнала. И вкус! Муж попросил повторить через неделю.</p>
         <footer class="vp-rcard__author">
-          <div class="vp-rcard__avatar">М</div>
-          <div class="vp-rcard__meta"><strong>Мария</strong><span>Астана, февраль 2026</span></div>
+          <div class="vp-rcard__avatar">К</div>
+          <div class="vp-rcard__meta"><strong>Карина</strong><span>Астана, февраль 2026</span></div>
         </footer>
       </blockquote>
       <blockquote class="vp-rcard">
         <div class="vp-rcard__stars">★★★★★</div>
-        <p class="vp-rcard__text">ПП-десерты действительно вкусные и без лишнего сахара. Заказываю регулярно для себя и семьи, доставка всегда вовремя.</p>
+        <p class="vp-rcard__text">Брала маме на юбилей — все спрашивали, где такой нашла. Доставили вовремя, упаковка красивая.</p>
         <footer class="vp-rcard__author">
-          <div class="vp-rcard__avatar">Е</div>
-          <div class="vp-rcard__meta"><strong>Елена</strong><span>Астана, январь 2026</span></div>
+          <div class="vp-rcard__avatar">Н</div>
+          <div class="vp-rcard__meta"><strong>Нурайым</strong><span>Астана, январь 2026</span></div>
         </footer>
       </blockquote>
     </div>
   </div>
 </section>
 
-<!-- ═════ CTA ═════ -->
-<section class="vp-section" style="padding-block:var(--vp-s-8);">
+<!-- Related -->
+<section class="vp-related">
   <div class="vp-container">
-    <div class="vp-cta-blk vp-reveal">
-      <span class="vp-eyebrow" style="color:var(--vp-sage-100);" data-i18n="cta2.title">Готовы попробовать?</span>
-      <h2 data-i18n="cta2.title">Готовы попробовать?</h2>
-      <p data-i18n="cta2.lead">Оформите заказ на сайте — мы свяжемся для подтверждения в течение 15 минут.</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--vp-s-3);">
-        <a href="order.html" class="vp-btn vp-btn--primary vp-btn--lg"><i class="ph ph-shopping-bag"></i><span data-i18n="cta.order">Оформить заказ</span></a>
-        <a href="#" data-whatsapp class="vp-btn vp-btn--outline vp-btn--lg"><i class="ph ph-whatsapp-logo"></i><span data-i18n="cta.order_wa">Заказать в WhatsApp</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ CONTACTS ═════ -->
-<section id="contacts" class="vp-section" style="background:var(--vp-milk);">
-  <div class="vp-container">
-    <div class="vp-section-head vp-reveal">
-      <span class="vp-eyebrow" data-i18n="contacts.eyebrow">Контакты</span>
-      <h2 class="vp-section-head__title" data-i18n="contacts.title">Мы здесь — пишите</h2>
-    </div>
-
-    <div class="vp-contacts-grid vp-reveal">
+    <div class="vp-section-head" style="display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;max-width:none;">
       <div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-whatsapp-logo"></i>
-          <div><small>WhatsApp</small><strong><a href="#" data-whatsapp>+7 700 123 45 67</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-instagram-logo"></i>
-          <div><small>Instagram</small><strong><a href="https://instagram.com/vkusno_polezno_astana" target="_blank">@vkusno_polezno_astana</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-tiktok-logo"></i>
-          <div><small>TikTok</small><strong><a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank">@vkusno_polezno_ast</a></strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-map-pin"></i>
-          <div><small data-i18n="contacts.eyebrow">Контакты</small><strong data-i18n="contacts.address">Астана, доставка по городу</strong></div>
-        </div>
-        <div class="vp-contact-row">
-          <i class="ph-duotone ph-clock"></i>
-          <div><small>Часы</small><strong data-i18n="contacts.hours">Ежедневно, 9:00 – 21:00</strong></div>
-        </div>
-
-        <div style="margin-top:var(--vp-s-6);padding:var(--vp-s-5);background:var(--vp-white);border:1px solid var(--vp-line);border-radius:var(--vp-r-lg);">
-          <p style="margin:0 0 var(--vp-s-4);font-size:0.9375rem;color:var(--vp-ink-2);" data-i18n="contacts.form.intro">Или оставьте заявку — мы перезвоним:</p>
-          <form>
-            <label class="vp-field">
-              <div class="vp-field__label"><span data-i18n="form.name">Имя</span></div>
-              <input class="vp-input" type="text" data-i18n-ph="form.name" placeholder="Имя">
-            </label>
-            <label class="vp-field">
-              <div class="vp-field__label"><span data-i18n="form.phone">Телефон</span></div>
-              <input class="vp-input" type="tel" placeholder="+7 (___) ___-__-__">
-            </label>
-            <button type="button" class="vp-btn vp-btn--primary vp-btn--block" data-whatsapp>
-              <i class="ph ph-paper-plane-tilt"></i><span data-i18n="form.send">Отправить заявку</span>
-            </button>
-          </form>
-        </div>
+        <span class="vp-eyebrow">Похожие десерты</span>
+        <h2 class="vp-section-head__title">Тоже могут понравиться</h2>
       </div>
-      <div class="vp-map">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=71.35,51.1,71.5,51.2&layer=mapnik" title="Астана"></iframe>
-      </div>
+      <a href="menu.html" class="vp-btn vp-btn--ghost">Все позиции →</a>
+    </div>
+    <div class="vp-grid-4">
+      <article class="vp-pcard">
+        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85');">
+          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Классика</span></div>
+        </div>
+        <div class="vp-pcard__body">
+          <h3 class="vp-pcard__title">Наполеон</h3>
+          <div class="vp-pcard__meta"><span><i class="ph ph-scales"></i>1 кг</span></div>
+          <div class="vp-pcard__price-row"><div class="vp-pcard__price">8 000<small>₸</small></div><a href="product.html" class="vp-pcard__add"><i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="vp-pcard">
+        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=700&q=85');">
+          <div class="vp-pcard__tags"><span class="vp-pcard__tag">ПП</span></div>
+        </div>
+        <div class="vp-pcard__body">
+          <h3 class="vp-pcard__title">Чизкейк</h3>
+          <div class="vp-pcard__meta"><span><i class="ph ph-scales"></i>целый</span></div>
+          <div class="vp-pcard__price-row"><div class="vp-pcard__price">9 500<small>₸</small></div><a href="product.html" class="vp-pcard__add"><i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="vp-pcard">
+        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1464195244916-405fa0a82545?w=700&q=85');">
+          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Новинка</span></div>
+        </div>
+        <div class="vp-pcard__body">
+          <h3 class="vp-pcard__title">Морковный</h3>
+          <div class="vp-pcard__meta"><span><i class="ph ph-scales"></i>1 кг</span></div>
+          <div class="vp-pcard__price-row"><div class="vp-pcard__price">8 200<small>₸</small></div><a href="product.html" class="vp-pcard__add"><i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
+      <article class="vp-pcard">
+        <div class="vp-pcard__media" style="background-image:url('https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=700&q=85');">
+          <div class="vp-pcard__tags"><span class="vp-pcard__tag">Эффектный</span></div>
+        </div>
+        <div class="vp-pcard__body">
+          <h3 class="vp-pcard__title">Red Velvet</h3>
+          <div class="vp-pcard__meta"><span><i class="ph ph-scales"></i>1 кг</span></div>
+          <div class="vp-pcard__price-row"><div class="vp-pcard__price">9 000<small>₸</small></div><a href="product.html" class="vp-pcard__add"><i class="ph ph-arrow-right"></i></a></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ═════ FOOTER ═════ -->
 <footer class="vp-footer">
   <div class="vp-container">
     <div class="vp-footer__grid">
@@ -1486,27 +1250,26 @@ body[data-icons="off"] .ph { display: none !important; }
         <h3 class="vp-footer__brand">Vkusno Polezno</h3>
         <p class="vp-footer__tag" data-i18n="footer.tag">Полезные десерты в Астане. Натуральные ингредиенты, ручная работа, доставка в день заказа.</p>
         <div class="vp-footer__social">
-          <a href="https://instagram.com/vkusno_polezno_astana" aria-label="Instagram" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-          <a href="https://tiktok.com/@vkusno_polezno_ast" aria-label="TikTok" target="_blank"><i class="ph ph-tiktok-logo"></i></a>
-          <a href="#" aria-label="WhatsApp" data-whatsapp><i class="ph ph-whatsapp-logo"></i></a>
+          <a href="https://instagram.com/vkusno_polezno_astana" target="_blank" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+          <a href="#" data-whatsapp aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
       </div>
       <div>
         <h4 data-i18n="footer.menu">Ассортимент</h4>
         <ul>
-          <li><a href="menu.html#cakes" data-i18n="cat.cakes">Торты</a></li>
-          <li><a href="menu.html#desserts" data-i18n="cat.desserts">Десерты</a></li>
-          <li><a href="menu.html#bread" data-i18n="cat.bread">Хлеб</a></li>
-          <li><a href="menu.html#pies" data-i18n="cat.pies">Пироги</a></li>
+          <li><a href="menu.html#cakes">Торты</a></li>
+          <li><a href="menu.html#desserts">Десерты</a></li>
+          <li><a href="menu.html#bread">Хлеб</a></li>
+          <li><a href="menu.html#pies">Пироги</a></li>
         </ul>
       </div>
       <div>
         <h4 data-i18n="footer.company">Компания</h4>
         <ul>
-          <li><a href="#about" data-i18n="nav.about">О нас</a></li>
-          <li><a href="#how" data-i18n="how.eyebrow">Как заказать</a></li>
-          <li><a href="#reviews" data-i18n="nav.reviews">Отзывы</a></li>
-          <li><a href="design-system.html">Design system</a></li>
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#how">Как заказать</a></li>
+          <li><a href="index.html#reviews">Отзывы</a></li>
         </ul>
       </div>
       <div>
@@ -1519,31 +1282,81 @@ body[data-icons="off"] .ph { display: none !important; }
       </div>
     </div>
     <div class="vp-footer__bottom">
-      <span data-i18n="footer.rights">© 2026 Vkusno Polezno Astana. Все права защищены.</span>
-      <span data-i18n="footer.made">Полезно • Вкусно • По любви</span>
+      <span>© 2026 Vkusno Polezno Astana. Все права защищены.</span>
+      <span>Полезно • Вкусно • По любви</span>
     </div>
   </div>
 </footer>
 
-<!-- ═════ TWEAKS PANEL ═════ -->
-<aside class="vp-tweaks" id="tweaks">
-  <h3>Tweaks</h3>
-  <div class="vp-tweaks__row">
-    <label>Hero layout</label>
-    <div class="vp-tweaks__seg" data-tw="hero">
-      <button data-val="a" class="is-active">A · Split</button>
-      <button data-val="b">B · Full</button>
-      <button data-val="c">C · Mag</button>
-    </div>
-  </div>
-  <div class="vp-tweaks__row">
-    <label>Icons</label>
-    <div class="vp-tweaks__seg" data-tw="icons">
-      <button data-val="on" class="is-active">On</button>
-      <button data-val="off">Off</button>
-    </div>
-  </div>
-</aside>
+<script>
+function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+// Gallery
+const main = document.getElementById('gal-main');
+document.querySelectorAll('.vp-gal__thumb').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.vp-gal__thumb').forEach(x => x.classList.remove('is-active'));
+    t.classList.add('is-active');
+    main.style.backgroundImage = `url('${t.dataset.img}')`;
+  });
+});
+
+// Price/qty
+const priceEl = document.getElementById('price');
+const perkgEl = document.getElementById('perkg');
+const totalEl = document.getElementById('total');
+const weightOut = document.getElementById('weight-out');
+const decorOut = document.getElementById('decor-out');
+const qtyInput = document.getElementById('qty');
+
+function update() {
+  const w = document.querySelector('input[name="weight"]:checked');
+  const d = document.querySelector('input[name="decor"]:checked');
+  const wPrice = parseInt(w.dataset.price, 10);
+  const dAdd = parseInt(d.dataset.add || '0', 10);
+  const qty = Math.max(1, parseInt(qtyInput.value || '1', 10));
+  const unit = wPrice + dAdd;
+  const total = unit * qty;
+  priceEl.innerHTML = `${fmt(unit)}<small>₸</small>`;
+  perkgEl.textContent = `${w.value} кг · ${w.dataset.portions}`;
+  weightOut.textContent = `${w.value} кг`;
+  decorOut.textContent = d.dataset.name;
+  totalEl.textContent = `${fmt(total)} ₸`;
+}
+document.querySelectorAll('input[name="weight"], input[name="decor"]').forEach(r => r.addEventListener('change', update));
+
+document.querySelectorAll('.vp-qty button').forEach(b => {
+  b.addEventListener('click', () => {
+    qtyInput.value = Math.max(1, Math.min(20, (parseInt(qtyInput.value, 10) || 1) + parseInt(b.dataset.qty, 10)));
+    update();
+  });
+});
+qtyInput.addEventListener('input', update);
+update();
+
+// Tabs
+document.querySelectorAll('.vp-tabs__btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.vp-tabs__btn').forEach(x => x.classList.remove('is-active'));
+    document.querySelectorAll('.vp-tabs__panel').forEach(x => x.classList.remove('is-active'));
+    b.classList.add('is-active');
+    document.querySelector(`.vp-tabs__panel[data-tab="${b.dataset.tab}"]`).classList.add('is-active');
+  });
+});
+
+// WhatsApp
+document.querySelectorAll('[data-whatsapp]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const w = document.querySelector('input[name="weight"]:checked').value;
+    const d = document.querySelector('input[name="decor"]:checked').dataset.name;
+    const msg = `Здравствуйте! Хочу заказать торт «Медовик», ${w} кг, декор: ${d.toLowerCase()}.`;
+    window.open(`https://wa.me/77001234567?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+});
+
+document.querySelector('.vp-burger')?.addEventListener('click', () => alert('Меню: О нас · Ассортимент · Галерея · Отзывы · Контакты'));
+</script>
 
 <script>
 /* ============================================
@@ -1975,42 +1788,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-</script>
-<script>
-  // Tweaks defaults
-  const VP_TWEAKS = /*EDITMODE-BEGIN*/{
-    "hero": "a",
-    "icons": "on"
-  }/*EDITMODE-END*/;
-
-  // Apply initial tweaks
-  Object.entries(VP_TWEAKS).forEach(([k,v]) => document.body.setAttribute("data-"+k, v));
-
-  // Edit-mode host protocol
-  window.addEventListener("message", (e) => {
-    if (!e.data) return;
-    if (e.data.type === "__activate_edit_mode") document.getElementById("tweaks").classList.add("is-open");
-    if (e.data.type === "__deactivate_edit_mode") document.getElementById("tweaks").classList.remove("is-open");
-  });
-  window.parent.postMessage({type: "__edit_mode_available"}, "*");
-
-  // Tweak buttons
-  document.querySelectorAll(".vp-tweaks__seg").forEach(seg => {
-    const key = seg.dataset.tw;
-    seg.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        seg.querySelectorAll("button").forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        const val = btn.dataset.val;
-        document.body.setAttribute("data-"+key, val);
-        VP_TWEAKS[key] = val;
-        window.parent.postMessage({type: "__edit_mode_set_keys", edits: {[key]: val}}, "*");
-      });
-    });
-    // Init buttons from current
-    const current = document.body.getAttribute("data-"+key);
-    seg.querySelectorAll("button").forEach(b => b.classList.toggle("is-active", b.dataset.val === current));
-  });
 </script>
 </body>
 </html>
