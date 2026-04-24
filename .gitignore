@@ -1,13 +1,28 @@
-# Зависимости
-node_modules/
-backend/node_modules/
-
-# Окружение и секреты
-backend/.env
+# Environment
 .env
-.env.local
-*.env.local
+.venv/
+venv/
 
-# Логи и кэш
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Logs
+logs/
 *.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Data (optional - if using external DB)
+# data/orders.json

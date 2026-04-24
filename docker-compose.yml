@@ -1,42 +1,31 @@
-# VPA: сайт + API заказов + PostgreSQL
-# Запуск: docker compose up -d
-# API и сайт: http://localhost:3000
+version: '3.8'
 
 services:
-  app:
-    restart: unless-stopped
+  bot:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./backend/.env
-    environment:
-      DATABASE_URL: postgresql://vpa:vpa@db:5432/vpa
-      PORT: "3000"
-      STATIC_DIR: /app/static
-    volumes:
-      - .:/app/static:ro
-    depends_on:
-      db:
-        condition: service_healthy
-
-  db:
+      context: .
+      dockerfile: Dockerfile.bot
+    container_name: vkusno_bot
     restart: unless-stopped
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: vpa
-      POSTGRES_PASSWORD: vpa
-      POSTGRES_DB: vpa
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U vpa -d vpa"]
-      interval: 3s
-      timeout: 3s
-      retries: 5
+      - ./bot/logs:/app/bot/logs
+      - ./data:/app/data
+    env_file:
+      - .env
+    networks:
+      - vkusno_network
 
-volumes:
-  postgres_data:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile.site
+    container_name: vkusno_site
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
+      - vkusno_network
+
+networks:
+  vkusno_network:
+    driver: bridge
