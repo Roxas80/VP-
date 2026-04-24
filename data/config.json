@@ -1,0 +1,60 @@
+{
+  "roles": {
+    "admin": 8712401072,
+    "confectioner": 373825397,
+    "confectioner_group": -5004785391,
+    "courier": null,
+    "accountant": null
+  },
+  "payment": {
+    "methods": [
+      {
+        "id": "kaspi_transfer",
+        "name": "Kaspi Перевод",
+        "type": "transfer",
+        "phone": "+77711632111"
+      },
+      {
+        "id": "halyk_transfer",
+        "name": "Halyk Bank",
+        "type": "card_transfer",
+        "card_number": null
+      },
+      {
+        "id": "freedom_transfer",
+        "name": "Freedom Finance",
+        "type": "card_transfer",
+        "card_number": null
+      },
+      {
+        "id": "cash",
+        "name": "Наличные при получении",
+        "type": "cash"
+      },
+      {
+        "id": "partial",
+        "name": "Предоплата 50% (на будущее)",
+        "type": "partial"
+      }
+    ]
+  },
+  "delivery": {
+    "zones": [
+      {
+        "name": "Астана (центр)",
+        "price": 1500,
+        "time": "30-60 мин"
+      },
+      {
+        "name": "Астана (спальный район)",
+        "price": 2000,
+        "time": "45-90 мин"
+      },
+      {
+        "name": "Пригород (до 20 км)",
+        "price": 3000,
+        "time": "60-120 мин"
+      }
+    ]
+  }
+}
