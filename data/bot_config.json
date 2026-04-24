@@ -1,0 +1,34 @@
+{
+  "business": {
+    "name": "vkusno_polezno_astana",
+    "phone": "+77711632111",
+    "address": "Проспект Аль-Фараби 23, магазин кулинарии VKUSNO_POLEZNO",
+    "location": "Астана, Казахстан"
+  },
+  "order_hours": {
+    "same_day_start": "00:00",
+    "same_day_end": "19:00",
+    "next_day_start": "19:01",
+    "next_day_end": "23:59"
+  },
+  "payment": {
+    "current_orders": "при получении",
+    "preorders": "предоплата 50%"
+  },
+  "delivery": {
+    "pickup": "бесплатно",
+    "astana": "платная (клиент оплачивает при получении)",
+    "suburbs": "платная (клиент оплачивает при получении)",
+    "other_cities": "до 500 км от Астаны, платная"
+  },
+  "extras": {
+    "description": "увеличивают стоимость",
+    "options": [
+      "Оформление (надписи)",
+      "Изображения из пищевой бумаги",
+      "Изображения из печенья"
+    ]
+  },
+  "min_order": null,
+  "working_hours": "24/7 приём заказов"
+}
