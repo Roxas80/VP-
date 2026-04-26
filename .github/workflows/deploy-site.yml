@@ -1,29 +1,29 @@
-name: Deploy Site to GitHub Pages
+name: Deploy Site to VPS
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'website/**'
+    paths-ignore:
+      - 'bot/**'
+      - 'Dockerfile.bot'
+      - '.github/workflows/deploy.yml'
+      - 'README.md'
+      - 'docs/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-    
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: './website'
-    
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      - name: Pull latest code on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            cd /var/www/vpa-site
+            git fetch origin main
+            git reset --hard origin/main
+            echo "✅ Site updated to $(git rev-parse --short HEAD)"
