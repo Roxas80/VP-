@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /admin-cms/
+Disallow: /_preview/
+Disallow: /dist/
+
+Sitemap: https://roxas80.github.io/VP-/sitemap.xml

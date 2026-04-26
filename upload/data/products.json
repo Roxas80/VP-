@@ -1,0 +1,37 @@
+{
+  "categories": [
+    { "id": "cakes",    "name": { "ru": "Торты",   "kz": "Торттар",   "en": "Cakes" } },
+    { "id": "desserts", "name": { "ru": "Десерты", "kz": "Десерттер", "en": "Desserts" } },
+    { "id": "bread",    "name": { "ru": "Хлеб",    "kz": "Нан",       "en": "Bread" } },
+    { "id": "pies",     "name": { "ru": "Пироги",  "kz": "Пирогтар",  "en": "Pies" } }
+  ],
+  "items": [
+    {
+      "id": "honey-cake",
+      "category": "cakes",
+      "title": { "ru": "Медовик классический", "kz": "Классикалық медовик", "en": "Classic honey cake" },
+      "description": {
+        "ru": "Тонкие медовые коржи и сметанный крем, выдержанные 12 часов.",
+        "kz": "Жұқа балдан жасалған кектер және 12 сағат тұрған қаймақ кремі.",
+        "en": "Thin honey layers with sour cream filling, rested for 12 hours."
+      },
+      "price": 12000,
+      "unit": "kg",
+      "image": "",
+      "badges": ["bestseller"],
+      "ingredients": {
+        "ru": "Мука, мёд, сметана, сливочное масло, яйца, сахар",
+        "kz": "Ұн, бал, қаймақ, сары май, жұмыртқа, қант",
+        "en": "Flour, honey, sour cream, butter, eggs, sugar"
+      },
+      "allergens": ["gluten", "dairy", "eggs"],
+      "weights": [
+        { "kg": 1,   "price": 12000, "servings": "8–10" },
+        { "kg": 1.5, "price": 17000, "servings": "12–14" },
+        { "kg": 2,   "price": 22000, "servings": "16–18" },
+        { "kg": 3,   "price": 31000, "servings": "22–26" }
+      ],
+      "active": true
+    }
+  ]
+}
