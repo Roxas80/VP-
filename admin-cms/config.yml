@@ -1,0 +1,250 @@
+# ==========================================================
+# Decap CMS — Vkusno Polezno
+# ==========================================================
+# Авторизация: GitHub OAuth (нужен бесплатный OAuth-прокси).
+# Инструкция настройки в README-CMS.md в корне проекта.
+# ==========================================================
+
+backend:
+  name: github
+  repo: Roxas80/VP-
+  branch: main
+  base_url: https://api.netlify.com   # OAuth-прокси (Netlify даёт бесплатно)
+  # Альтернатива: свой Cloudflare Worker — заменить base_url на его URL.
+
+# Папка для загрузки картинок (в репо)
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Локализация интерфейса
+locale: 'ru'
+
+# Открывать редактор сразу с предпросмотром
+display_url: https://roxas80.github.io/VP-/
+
+# ==========================================================
+# Коллекции (= JSON-файлы в /data)
+# ==========================================================
+collections:
+
+  # ─── Настройки сайта ──────────────────────────────────
+  - name: site
+    label: "⚙️ Настройки сайта"
+    files:
+      - file: data/site.json
+        name: site
+        label: "Бренд и контакты"
+        fields:
+          - { name: brand, label: "Бренд", widget: object, fields: [
+              { name: name, label: Название, widget: string },
+              { name: city, label: Город, widget: string },
+              { name: tagline, label: Слоган, widget: object, fields: [
+                  { name: ru, label: RU, widget: string },
+                  { name: kz, label: KZ, widget: string },
+                  { name: en, label: EN, widget: string }
+              ]},
+              { name: currency, label: "Символ валюты", widget: string },
+              { name: currencyCode, label: "Код валюты", widget: string }
+          ]}
+          - { name: contacts, label: "Контакты", widget: object, fields: [
+              { name: phone, label: Телефон, widget: string },
+              { name: whatsapp, label: "WhatsApp (без +)", widget: string },
+              { name: email, label: Email, widget: string },
+              { name: instagram, label: "Instagram (логин)", widget: string },
+              { name: telegram, label: "Telegram (логин)", widget: string },
+              { name: address, label: Адрес, widget: object, fields: [
+                  { name: ru, widget: string }, { name: kz, widget: string }, { name: en, widget: string }
+              ]},
+              { name: hours, label: "Часы работы", widget: object, fields: [
+                  { name: ru, widget: string }, { name: kz, widget: string }, { name: en, widget: string }
+              ]}
+          ]}
+          - { name: social, label: "Соцсети (URL)", widget: object, fields: [
+              { name: instagram, widget: string },
+              { name: whatsapp, widget: string },
+              { name: telegram, widget: string }
+          ]}
+          - { name: github, label: "GitHub (не менять)", widget: object, fields: [
+              { name: owner, widget: string },
+              { name: repo, widget: string },
+              { name: branch, widget: string },
+              { name: dataPath, widget: string }
+          ]}
+
+  # ─── Товары ───────────────────────────────────────────
+  - name: products
+    label: "🍰 Товары"
+    files:
+      - file: data/products.json
+        name: products
+        label: "Каталог товаров"
+        fields:
+          - { name: categories, label: Категории, widget: list, fields: [
+              { name: id, label: ID, widget: string },
+              { name: name, label: Название, widget: object, fields: [
+                  { name: ru, widget: string }, { name: kz, widget: string }, { name: en, widget: string }
+              ]}
+          ]}
+          - name: items
+            label: Товары
+            widget: list
+            summary: "{{fields.title.ru}} — {{fields.price}} ₸"
+            fields:
+              - { name: id, label: ID (slug), widget: string }
+              - { name: category, label: Категория, widget: string, hint: "id из списка категорий" }
+              - { name: title, label: Название, widget: object, fields: [
+                  { name: ru, widget: string }, { name: kz, widget: string }, { name: en, widget: string }
+              ]}
+              - { name: description, label: Описание, widget: object, fields: [
+                  { name: ru, widget: text }, { name: kz, widget: text }, { name: en, widget: text }
+              ]}
+              - { name: ingredients, label: Состав, widget: object, required: false, fields: [
+                  { name: ru, widget: text, required: false },
+                  { name: kz, widget: text, required: false },
+                  { name: en, widget: text, required: false }
+              ]}
+              - { name: price, label: Цена (₸), widget: number, value_type: int }
+              - { name: unit, label: Ед., widget: select, options: ['kg','pc','100g'] }
+              - { name: image, label: Фото, widget: image, required: false }
+              - { name: badges, label: Бейджи, widget: list, required: false, default: [] }
+              - { name: allergens, label: Аллергены, widget: list, required: false, default: [] }
+              - name: weights
+                label: "Веса и цены"
+                widget: list
+                required: false
+                fields:
+                  - { name: kg, label: "Вес (кг)", widget: number, value_type: float }
+                  - { name: price, label: "Цена (₸)", widget: number, value_type: int }
+                  - { name: servings, label: "Порций", widget: string, required: false }
+              - { name: active, label: "Активен", widget: boolean, default: true }
+
+  # ─── Тексты страниц ───────────────────────────────────
+  - name: pages
+    label: "📄 Тексты страниц"
+    files:
+      - file: data/pages.json
+        name: pages
+        label: "Главная, О нас, Доставка, FAQ, SEO"
+        fields:
+          - { name: seo, label: SEO, widget: object, fields: [
+              { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+              { name: description, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] },
+              { name: keywords, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+              { name: ogImage, label: "OG image URL", widget: string, required: false }
+          ]}
+          - name: home
+            label: "Главная"
+            widget: object
+            fields:
+              - { name: hero, label: Hero, widget: object, fields: [
+                  { name: eyebrow, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+                  { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+                  { name: subtitle, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] },
+                  { name: ctaPrimary, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+                  { name: ctaSecondary, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              ]}
+              - name: features
+                label: "Преимущества"
+                widget: object
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - name: items
+                    widget: list
+                    fields:
+                      - { name: icon, widget: string }
+                      - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                      - { name: text, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+              - name: howto
+                label: "Как заказать"
+                widget: object
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - name: steps
+                    widget: list
+                    fields:
+                      - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                      - { name: text, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+              - { name: cta, label: "CTA-блок", widget: object, fields: [
+                  { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] },
+                  { name: text, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] },
+                  { name: button, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              ]}
+          - name: about
+            label: "О нас"
+            widget: object
+            fields:
+              - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - { name: lead, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - { name: story, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+              - name: values
+                widget: list
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - { name: text, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+          - name: delivery
+            label: "Доставка и оплата"
+            widget: object
+            fields:
+              - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - name: delivery
+                widget: object
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - name: items
+                    widget: list
+                    field: { name: item, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - name: payment
+                widget: object
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - name: items
+                    widget: list
+                    field: { name: item, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - name: leadtime
+                widget: object
+                fields:
+                  - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - { name: text, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+          - name: faq
+            label: "FAQ"
+            widget: object
+            fields:
+              - { name: title, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+              - name: items
+                widget: list
+                fields:
+                  - { name: q, label: Вопрос, widget: object, fields: [{name:ru,widget:string},{name:kz,widget:string},{name:en,widget:string}] }
+                  - { name: a, label: Ответ, widget: object, fields: [{name:ru,widget:text},{name:kz,widget:text},{name:en,widget:text}] }
+
+  # ─── Отзывы ──────────────────────────────────────────
+  - name: reviews
+    label: "⭐ Отзывы"
+    files:
+      - file: data/reviews.json
+        name: reviews
+        label: "Список отзывов"
+        fields:
+          - name: items
+            widget: list
+            summary: "{{fields.author}} — {{fields.rating}}★"
+            fields:
+              - { name: id, widget: string }
+              - { name: author, label: Автор, widget: string }
+              - { name: rating, label: Рейтинг, widget: number, min: 1, max: 5, value_type: int }
+              - { name: date, label: Дата, widget: string }
+              - { name: text, label: Текст, widget: object, fields: [
+                  { name: ru, widget: text }, { name: kz, widget: text }, { name: en, widget: text }
+              ]}
+
+  # ─── Галерея ─────────────────────────────────────────
+  - name: gallery
+    label: "🖼️ Галерея"
+    files:
+      - file: data/gallery.json
+        name: gallery
+        label: "Фото галереи"
+        fields:
+          - name: items
+            widget: list
+            fields:
+              - { name: url, label: "Фото", widget: image }
