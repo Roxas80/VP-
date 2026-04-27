@@ -3,7 +3,7 @@
     "name": "Vkusno Polezno",
     "city": "Astana",
     "tagline": {
-      "ru": "Полезные десерты и торты в Астане",
+      "ru": "Полезные десерты в Астане",
       "kz": "Астанадағы пайдалы десерттер",
       "en": "Healthy desserts in Astana"
     },
@@ -11,15 +11,15 @@
     "currencyCode": "KZT"
   },
   "contacts": {
-    "phone": "+7 771 163 21 11",
-    "whatsapp": "77711632111",
+    "phone": "+7 700 000 00 00",
+    "whatsapp": "77000000000",
     "email": "hello@vkusno-polezno.kz",
     "instagram": "vkusno_polezno_astana",
     "telegram": "vkusnopolezno",
     "address": {
-      "ru": "г. Астана, Аль-Фараби проспект, 23. ​Есильский район, ​Z05T5P6",
-      "kz": "Астана қ., Аль-Фараби даңғылы, 23. ​Есіл ауданы, ​Z05T5P6",
-      "en": "Astana, Al-Farabi Avenue 23, Yesil District. ​Z05T5P6"
+      "ru": "г. Астана, ул. Достык 5",
+      "kz": "Астана қ., Достық к-сі 5",
+      "en": "Astana, Dostyk str. 5"
     },
     "hours": {
       "ru": "Ежедневно 09:00–21:00",
@@ -29,8 +29,8 @@
   },
   "social": {
     "instagram": "https://instagram.com/vkusno_polezno_astana",
-    "whatsapp": "https://wa.me/77711632111",
-    "telegram": "@VKUSNO_POLEZNO_SaleBot"
+    "whatsapp": "https://wa.me/77000000000",
+    "telegram": "https://t.me/vkusnopolezno"
   },
   "github": {
     "owner": "Roxas80",

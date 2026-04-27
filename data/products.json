@@ -1,36 +1,485 @@
 {
   "categories": [
-    { "id": "cakes",    "name": { "ru": "Торты",   "kz": "Торттар",   "en": "Cakes" } },
-    { "id": "desserts", "name": { "ru": "Десерты", "kz": "Десерттер", "en": "Desserts" } },
-    { "id": "bread",    "name": { "ru": "Хлеб",    "kz": "Нан",       "en": "Bread" } },
-    { "id": "pies",     "name": { "ru": "Пироги",  "kz": "Пирогтар",  "en": "Pies" } }
+    {
+      "id": "cakes",
+      "name": {
+        "ru": "Торты",
+        "kz": "Торты",
+        "en": "Торты"
+      },
+      "icon": "ph-cake",
+      "note": {
+        "ru": "изготавливаются на заказ, 24 ч",
+        "kz": "изготавливаются на заказ, 24 ч",
+        "en": "изготавливаются на заказ, 24 ч"
+      }
+    },
+    {
+      "id": "desserts",
+      "name": {
+        "ru": "Десерты",
+        "kz": "Десерты",
+        "en": "Десерты"
+      },
+      "icon": "ph-ice-cream",
+      "note": {
+        "ru": "штучно, готовы к заказу",
+        "kz": "штучно, готовы к заказу",
+        "en": "штучно, готовы к заказу"
+      }
+    },
+    {
+      "id": "bread",
+      "name": {
+        "ru": "Хлеб",
+        "kz": "Хлеб",
+        "en": "Хлеб"
+      },
+      "icon": "ph-bread",
+      "note": {
+        "ru": "на закваске, 48 ч ферментации",
+        "kz": "на закваске, 48 ч ферментации",
+        "en": "на закваске, 48 ч ферментации"
+      }
+    },
+    {
+      "id": "pies",
+      "name": {
+        "ru": "Пироги",
+        "kz": "Пироги",
+        "en": "Пироги"
+      },
+      "icon": "ph-pie-chart",
+      "note": {
+        "ru": "целиком, выпекаются утром",
+        "kz": "целиком, выпекаются утром",
+        "en": "целиком, выпекаются утром"
+      }
+    }
   ],
   "items": [
     {
-      "id": "honey-cake",
+      "id": "tort-na-zakaz",
       "category": "cakes",
-      "title": { "ru": "Медовик классический", "kz": "Классикалық медовик", "en": "Classic honey cake" },
+      "title": {
+        "ru": "Торт на заказ",
+        "kz": "Торт на заказ",
+        "en": "Торт на заказ"
+      },
       "description": {
-        "ru": "Тонкие медовые коржи и сметанный крем, выдержанные 12 часов.",
-        "kz": "Жұқа балдан жасалған кектер және 12 сағат тұрған қаймақ кремі.",
-        "en": "Thin honey layers with sour cream filling, rested for 12 hours."
+        "ru": "",
+        "kz": "",
+        "en": ""
       },
-      "price": 12000,
-      "unit": "kg",
-      "image": "",
-      "badges": ["bestseller"],
-      "ingredients": {
-        "ru": "Мука, мёд, сметана, сливочное масло, яйца, сахар",
-        "kz": "Ұн, бал, қаймақ, сары май, жұмыртқа, қант",
-        "en": "Flour, honey, sour cream, butter, eggs, sugar"
-      },
-      "allergens": ["gluten", "dairy", "eggs"],
-      "weights": [
-        { "kg": 1,   "price": 12000, "servings": "8–10" },
-        { "kg": 1.5, "price": 17000, "servings": "12–14" },
-        { "kg": 2,   "price": 22000, "servings": "16–18" },
-        { "kg": 3,   "price": 31000, "servings": "22–26" }
+      "price": 8500,
+      "unit": "1 кг",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=85",
+      "tag": "Хит",
+      "badges": [
+        "хит"
       ],
+      "active": true
+    },
+    {
+      "id": "medovik",
+      "category": "cakes",
+      "title": {
+        "ru": "Медовик",
+        "kz": "Медовик",
+        "en": "Медовик"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 7500,
+      "unit": "1 кг",
+      "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=700&q=85",
+      "tag": "Классика",
+      "badges": [
+        "классика"
+      ],
+      "active": true
+    },
+    {
+      "id": "napoleon",
+      "category": "cakes",
+      "title": {
+        "ru": "Наполеон",
+        "kz": "Наполеон",
+        "en": "Наполеон"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 8000,
+      "unit": "1 кг",
+      "image": "https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "chizkeik-klassicheskii",
+      "category": "cakes",
+      "title": {
+        "ru": "Чизкейк классический",
+        "kz": "Чизкейк классический",
+        "en": "Чизкейк классический"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 9500,
+      "unit": "целый",
+      "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=700&q=85",
+      "tag": "ПП",
+      "badges": [
+        "пп"
+      ],
+      "active": true
+    },
+    {
+      "id": "tort-morkovnyi",
+      "category": "cakes",
+      "title": {
+        "ru": "Торт морковный",
+        "kz": "Торт морковный",
+        "en": "Торт морковный"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 8200,
+      "unit": "1 кг",
+      "image": "https://images.unsplash.com/photo-1616031036073-b7e48d64c8fc?w=700&q=85",
+      "tag": "Новинка",
+      "badges": [
+        "новинка"
+      ],
+      "active": true
+    },
+    {
+      "id": "tort-red-velvet",
+      "category": "cakes",
+      "title": {
+        "ru": "Торт Red Velvet",
+        "kz": "Торт Red Velvet",
+        "en": "Торт Red Velvet"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 9000,
+      "unit": "1 кг",
+      "image": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "kapkeik",
+      "category": "desserts",
+      "title": {
+        "ru": "Капкейк",
+        "kz": "Капкейк",
+        "en": "Капкейк"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 850,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=700&q=85",
+      "tag": "Хит",
+      "badges": [
+        "хит"
+      ],
+      "active": true
+    },
+    {
+      "id": "maffin-pp",
+      "category": "desserts",
+      "title": {
+        "ru": "Маффин ПП",
+        "kz": "Маффин ПП",
+        "en": "Маффин ПП"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 750,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1607478900766-efe13248b125?w=700&q=85",
+      "tag": "ПП",
+      "badges": [
+        "пп"
+      ],
+      "active": true
+    },
+    {
+      "id": "ekler",
+      "category": "desserts",
+      "title": {
+        "ru": "Эклер",
+        "kz": "Эклер",
+        "en": "Эклер"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 650,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "panna-kota",
+      "category": "desserts",
+      "title": {
+        "ru": "Панна-кота",
+        "kz": "Панна-кота",
+        "en": "Панна-кота"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 950,
+      "unit": "порция",
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "tort-morozhenoe",
+      "category": "desserts",
+      "title": {
+        "ru": "Торт-мороженое",
+        "kz": "Торт-мороженое",
+        "en": "Торт-мороженое"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 1200,
+      "unit": "порция",
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "brauni",
+      "category": "desserts",
+      "title": {
+        "ru": "Брауни",
+        "kz": "Брауни",
+        "en": "Брауни"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 700,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=700&q=85",
+      "tag": "ПП",
+      "badges": [
+        "пп"
+      ],
+      "active": true
+    },
+    {
+      "id": "hleb-na-zakvaske",
+      "category": "bread",
+      "title": {
+        "ru": "Хлеб на закваске",
+        "kz": "Хлеб на закваске",
+        "en": "Хлеб на закваске"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 1200,
+      "unit": "буханка",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85",
+      "tag": "Закваска",
+      "badges": [
+        "закваска"
+      ],
+      "active": true
+    },
+    {
+      "id": "bezdrozhzhevoi-hleb",
+      "category": "bread",
+      "title": {
+        "ru": "Бездрожжевой хлеб",
+        "kz": "Бездрожжевой хлеб",
+        "en": "Бездрожжевой хлеб"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 1100,
+      "unit": "буханка",
+      "image": "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=700&q=85",
+      "tag": "Без дрожжей",
+      "badges": [
+        "без дрожжей"
+      ],
+      "active": true
+    },
+    {
+      "id": "baget",
+      "category": "bread",
+      "title": {
+        "ru": "Багет",
+        "kz": "Багет",
+        "en": "Багет"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 650,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "hleb-s-semenami",
+      "category": "bread",
+      "title": {
+        "ru": "Хлеб с семенами",
+        "kz": "Хлеб с семенами",
+        "en": "Хлеб с семенами"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 1350,
+      "unit": "буханка",
+      "image": "https://images.unsplash.com/photo-1534620808146-d33bb39128b2?w=700&q=85",
+      "tag": "Новинка",
+      "badges": [
+        "новинка"
+      ],
+      "active": true
+    },
+    {
+      "id": "pirog-yablochnyi",
+      "category": "pies",
+      "title": {
+        "ru": "Пирог яблочный",
+        "kz": "Пирог яблочный",
+        "en": "Пирог яблочный"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 2500,
+      "unit": "целый",
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=85",
+      "tag": "Домашний",
+      "badges": [
+        "домашний"
+      ],
+      "active": true
+    },
+    {
+      "id": "pirog-s-vishnei",
+      "category": "pies",
+      "title": {
+        "ru": "Пирог с вишней",
+        "kz": "Пирог с вишней",
+        "en": "Пирог с вишней"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 2700,
+      "unit": "целый",
+      "image": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=700&q=85",
+      "tag": "",
+      "badges": [],
+      "active": true
+    },
+    {
+      "id": "pirog-s-myasom",
+      "category": "pies",
+      "title": {
+        "ru": "Пирог с мясом",
+        "kz": "Пирог с мясом",
+        "en": "Пирог с мясом"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 2200,
+      "unit": "целый",
+      "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=85",
+      "tag": "Сытный",
+      "badges": [
+        "сытный"
+      ],
+      "active": true
+    },
+    {
+      "id": "sloika-s-tvorogom",
+      "category": "pies",
+      "title": {
+        "ru": "Слойка с творогом",
+        "kz": "Слойка с творогом",
+        "en": "Слойка с творогом"
+      },
+      "description": {
+        "ru": "",
+        "kz": "",
+        "en": ""
+      },
+      "price": 450,
+      "unit": "шт",
+      "image": "https://images.unsplash.com/photo-1578775887804-699de7086ff9?w=700&q=85",
+      "tag": "",
+      "badges": [],
       "active": true
     }
   ]

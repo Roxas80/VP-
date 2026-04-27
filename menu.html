@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script src="assets/js/data-loader.js" defer></script>
 <style>/* ============================================
    Vkusno Polezno — Design tokens
    Light, clean food, premium minimalism
@@ -895,7 +896,7 @@ button { font: inherit; cursor: pointer; }
     <p class="vp-menu-hero__sub">Торты, десерты, хлеб на закваске и домашние пироги. Всё — из натуральных продуктов, свежие партии каждое утро.</p>
     <div style="display:flex;gap:var(--vp-s-3);flex-wrap:wrap;">
       <a href="order.html" class="vp-btn vp-btn--primary"><i class="ph ph-shopping-bag"></i>Оформить заказ</a>
-      <a href="https://instagram.com/vkusno_polezno_astana" target="_blank" class="vp-btn vp-btn--outline"><i class="ph ph-instagram-logo"></i>Смотреть в Instagram</a>
+      <a data-bind-href="ig:site.contacts.instagram" href="#" target="_blank" class="vp-btn vp-btn--outline"><i class="ph ph-instagram-logo"></i>Смотреть в Instagram</a>
     </div>
   </div>
 </section>
@@ -920,7 +921,7 @@ button { font: inherit; cursor: pointer; }
       <i class="ph-duotone ph-instagram-logo"></i>
       <div>
         <strong>Актуальные фото и новинки — в Instagram</strong>
-        <p>Ассортимент обновляется каждую неделю. Следите за новинками в <a href="https://instagram.com/vkusno_polezno_astana" target="_blank">@vkusno_polezno_astana</a>.</p>
+        <p>Ассортимент обновляется каждую неделю. Следите за новинками в <a data-bind-href="ig:site.contacts.instagram" href="#" target="_blank">@vkusno_polezno_astana</a>.</p>
       </div>
     </div>
   </div>
@@ -953,7 +954,7 @@ button { font: inherit; cursor: pointer; }
         <h3 class="vp-footer__brand">Vkusno Polezno</h3>
         <p class="vp-footer__tag" data-i18n="footer.tag">Полезные десерты в Астане. Натуральные ингредиенты, ручная работа, доставка в день заказа.</p>
         <div class="vp-footer__social">
-          <a href="https://instagram.com/vkusno_polezno_astana" target="_blank" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a data-bind-href="ig:site.contacts.instagram" href="#" target="_blank" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
           <a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
           <a href="#" data-whatsapp aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
@@ -979,7 +980,7 @@ button { font: inherit; cursor: pointer; }
         <h4 data-i18n="footer.follow">Соцсети</h4>
         <ul>
           <li><a href="#" data-whatsapp>WhatsApp</a></li>
-          <li><a href="https://instagram.com/vkusno_polezno_astana" target="_blank">Instagram</a></li>
+          <li><a data-bind-href="ig:site.contacts.instagram" href="#" target="_blank">Instagram</a></li>
           <li><a href="https://tiktok.com/@vkusno_polezno_ast" target="_blank">TikTok</a></li>
         </ul>
       </div>
@@ -994,72 +995,41 @@ button { font: inherit; cursor: pointer; }
 <script>
 // Inline shared styles at runtime by fetching linked CSS? We'll actually inline directly via build step.
 // For now, data is embedded here:
-const VP_MENU = {
-  "currency": "₸",
-  "categories": [
-    {
-      "id": "cakes", "title": "Торты", "icon": "ph-cake",
-      "note": "изготавливаются на заказ, 24 ч",
-      "items": [
-        { "name": "Торт на заказ", "price": 8500, "unit": "1 кг", "tag": "Хит", "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=85" },
-        { "name": "Медовик", "price": 7500, "unit": "1 кг", "tag": "Классика", "img": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=700&q=85" },
-        { "name": "Наполеон", "price": 8000, "unit": "1 кг", "tag": "", "img": "https://images.unsplash.com/photo-1519915212116-7cfef61e2d3a?w=700&q=85" },
-        { "name": "Чизкейк классический", "price": 9500, "unit": "целый", "tag": "ПП", "img": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=700&q=85" },
-        { "name": "Торт морковный", "price": 8200, "unit": "1 кг", "tag": "Новинка", "img": "https://images.unsplash.com/photo-1616031036073-b7e48d64c8fc?w=700&q=85" },
-        { "name": "Торт Red Velvet", "price": 9000, "unit": "1 кг", "tag": "", "img": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=700&q=85" }
-      ]
-    },
-    {
-      "id": "desserts", "title": "Десерты", "icon": "ph-ice-cream",
-      "note": "штучно, готовы к заказу",
-      "items": [
-        { "name": "Капкейк", "price": 850, "unit": "шт", "tag": "Хит", "img": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=700&q=85" },
-        { "name": "Маффин ПП", "price": 750, "unit": "шт", "tag": "ПП", "img": "https://images.unsplash.com/photo-1607478900766-efe13248b125?w=700&q=85" },
-        { "name": "Эклер", "price": 650, "unit": "шт", "tag": "", "img": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=85" },
-        { "name": "Панна-кота", "price": 950, "unit": "порция", "tag": "", "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=85" },
-        { "name": "Торт-мороженое", "price": 1200, "unit": "порция", "tag": "", "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&q=85" },
-        { "name": "Брауни", "price": 700, "unit": "шт", "tag": "ПП", "img": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=700&q=85" }
-      ]
-    },
-    {
-      "id": "bread", "title": "Хлеб", "icon": "ph-bread",
-      "note": "на закваске, 48 ч ферментации",
-      "items": [
-        { "name": "Хлеб на закваске", "price": 1200, "unit": "буханка", "tag": "Закваска", "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85" },
-        { "name": "Бездрожжевой хлеб", "price": 1100, "unit": "буханка", "tag": "Без дрожжей", "img": "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=700&q=85" },
-        { "name": "Багет", "price": 650, "unit": "шт", "tag": "", "img": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=700&q=85" },
-        { "name": "Хлеб с семенами", "price": 1350, "unit": "буханка", "tag": "Новинка", "img": "https://images.unsplash.com/photo-1534620808146-d33bb39128b2?w=700&q=85" }
-      ]
-    },
-    {
-      "id": "pies", "title": "Пироги", "icon": "ph-pie-chart",
-      "note": "целиком, выпекаются утром",
-      "items": [
-        { "name": "Пирог яблочный", "price": 2500, "unit": "целый", "tag": "Домашний", "img": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=85" },
-        { "name": "Пирог с вишней", "price": 2700, "unit": "целый", "tag": "", "img": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=700&q=85" },
-        { "name": "Пирог с мясом", "price": 2200, "unit": "целый", "tag": "Сытный", "img": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=85" },
-        { "name": "Слойка с творогом", "price": 450, "unit": "шт", "tag": "", "img": "https://images.unsplash.com/photo-1578775887804-699de7086ff9?w=700&q=85" }
-      ]
-    }
-  ]
-};
-
-function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
-
-function renderCats(active = "all", search = "") {
+// Catalog rendered from /data/products.json via VP_DATA
+function vpFmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+function vpPick(v, lang) {
+  if (v && typeof v === 'object' && (v.ru||v.kz||v.en)) return v[lang] || v.ru || v.en || '';
+  return v || '';
+}
+function vpRenderCats(active, search) {
+  active = active || 'all';
+  search = (search || '').toLowerCase().trim();
+  const lang = (window.VP_DATA && window.VP_DATA.getLang()) || 'ru';
   const cats = document.getElementById('vp-cats');
-  const totalCount = VP_MENU.categories.reduce((a, c) => a + c.items.length, 0);
-  const filtered = (items) => !search ? items : items.filter(i => i.name.toLowerCase().includes(search.toLowerCase()));
-  cats.innerHTML = `<button class="vp-cat ${active==='all'?'is-active':''}" data-cat="all">Всё<span class="vp-cat__count">${totalCount}</span></button>` +
-    VP_MENU.categories.map(c => {
-      const cnt = filtered(c.items).length;
-      return `<button class="vp-cat ${active===c.id?'is-active':''}" data-cat="${c.id}">${c.title}<span class="vp-cat__count">${cnt}</span></button>`;
+  if (!cats) return;
+  const data = (window.VP_DATA && window.VP_DATA.store.products) || {};
+  const categories = data.categories || [];
+  const items = (data.items || []).filter(i => i.active !== false);
+  const filtered = (catId) => items.filter(i => {
+    if (i.category !== catId) return false;
+    if (!search) return true;
+    return vpPick(i.title, lang).toLowerCase().includes(search);
+  });
+  const totalCount = items.filter(i => !search || vpPick(i.title, lang).toLowerCase().includes(search)).length;
+  const allLabel = lang === 'kz' ? 'Бәрі' : (lang === 'en' ? 'All' : 'Всё');
+  cats.innerHTML = '<button class="vp-cat ' + (active==='all'?'is-active':'') + '" data-cat="all">' +
+    allLabel + '<span class="vp-cat__count">' + totalCount + '</span></button>' +
+    categories.map(c => {
+      const cnt = filtered(c.id).length;
+      return '<button class="vp-cat ' + (active===c.id?'is-active':'') + '" data-cat="' + c.id + '">' +
+        vpPick(c.name, lang) + '<span class="vp-cat__count">' + cnt + '</span></button>';
     }).join('');
   cats.querySelectorAll('.vp-cat').forEach(btn => {
     btn.addEventListener('click', () => {
       const cat = btn.dataset.cat;
       if (cat === 'all') {
-        window.scrollTo({ top: document.querySelector('.vp-cat-section')?.offsetTop - 180 || 0, behavior: 'smooth' });
+        const first = document.querySelector('.vp-cat-section');
+        if (first) window.scrollTo({ top: first.offsetTop - 180, behavior: 'smooth' });
       } else {
         const section = document.getElementById(cat);
         if (section) {
@@ -1067,75 +1037,84 @@ function renderCats(active = "all", search = "") {
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
       }
-      // Update active
       cats.querySelectorAll('.vp-cat').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
     });
   });
 }
-
-function renderCatalog(search = "") {
+function vpRenderCatalog(search) {
+  search = (search || '').toLowerCase().trim();
+  const lang = (window.VP_DATA && window.VP_DATA.getLang()) || 'ru';
   const container = document.getElementById('vp-catalog');
-  const q = search.toLowerCase().trim();
-  const html = VP_MENU.categories.map(c => {
-    const items = q ? c.items.filter(i => i.name.toLowerCase().includes(q)) : c.items;
-    if (items.length === 0) return '';
-    return `
-      <section class="vp-cat-section" id="${c.id}">
-        <header class="vp-cat-section__head">
-          <h2 class="vp-cat-section__title"><i class="ph ${c.icon}" style="color:var(--vp-sage-600);margin-right:8px;"></i>${c.title}</h2>
-          <span class="vp-cat-section__note">${c.note}</span>
-        </header>
-        <div class="vp-grid-4">
-          ${items.map(item => `
-            <article class="vp-pcard">
-              <div class="vp-pcard__media" style="background-image:url('${item.img}');">
-                ${item.tag ? `<div class="vp-pcard__tags"><span class="vp-pcard__tag">${item.tag}</span></div>` : ''}
-                <button class="vp-pcard__fav" aria-label="favorite"><i class="ph ph-heart"></i></button>
-              </div>
-              <div class="vp-pcard__body">
-                <h3 class="vp-pcard__title">${item.name}</h3>
-                <div class="vp-pcard__meta">
-                  <span><i class="ph ph-scales"></i>${item.unit}</span>
-                  <span><i class="ph ph-leaf"></i>натур.</span>
-                </div>
-                <div class="vp-pcard__price-row">
-                  <div class="vp-pcard__price">${fmt(item.price)}<small>${VP_MENU.currency}</small></div>
-                  <button class="vp-pcard__add" aria-label="add to cart" data-add='${JSON.stringify({n:item.name,p:item.price}).replace(/'/g,"&#39;")}'><i class="ph ph-plus"></i></button>
-                </div>
-              </div>
-            </article>
-          `).join('')}
-        </div>
-      </section>
-    `;
-  }).join('');
-  container.innerHTML = html || `<div class="vp-empty"><i class="ph ph-magnifying-glass"></i><p>Ничего не нашлось по запросу «${search}». Попробуйте другой.</p></div>`;
-
-  // Favorite + add handlers
-  container.querySelectorAll('.vp-pcard__fav').forEach(b => b.addEventListener('click', e => { e.preventDefault(); b.classList.toggle('is-active'); }));
-  container.querySelectorAll('.vp-pcard__add').forEach(b => b.addEventListener('click', e => {
-    e.preventDefault();
-    const data = JSON.parse(b.dataset.add.replace(/&#39;/g, "'"));
-    // Naive "toast"
-    const toast = document.createElement('div');
-    toast.textContent = `«${data.n}» добавлено к заказу`;
-    Object.assign(toast.style, {
-      position:'fixed', bottom:'24px', left:'50%', transform:'translateX(-50%)',
-      background:'var(--vp-ink)', color:'var(--vp-paper)', padding:'12px 20px',
-      borderRadius:'999px', fontSize:'0.875rem', fontWeight:'600',
-      boxShadow:'var(--vp-shadow-lg)', zIndex:'200',
-      opacity:'0', transition:'opacity 240ms'
+  if (!container) return;
+  const data = (window.VP_DATA && window.VP_DATA.store.products) || {};
+  const categories = data.categories || [];
+  const items = (data.items || []).filter(i => i.active !== false);
+  const currency = ((window.VP_DATA && window.VP_DATA.store.site && window.VP_DATA.store.site.brand && window.VP_DATA.store.site.brand.currency) || '₸');
+  const html = categories.map(c => {
+    const catItems = items.filter(i => {
+      if (i.category !== c.id) return false;
+      if (!search) return true;
+      return vpPick(i.title, lang).toLowerCase().includes(search);
     });
-    document.body.appendChild(toast);
-    requestAnimationFrame(() => toast.style.opacity = '1');
-    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 1800);
-  }));
+    if (catItems.length === 0) return '';
+    const note = vpPick(c.note, lang) || '';
+    return '<section class="vp-cat-section" id="' + c.id + '">' +
+      '<header class="vp-cat-section__head">' +
+        '<h2 class="vp-cat-section__title">' + (c.icon ? '<i class="ph ' + c.icon + '" style="color:var(--vp-sage-600);margin-right:8px;"></i>' : '') + vpPick(c.name, lang) + '</h2>' +
+        (note ? '<span class="vp-cat-section__note">' + note + '</span>' : '') +
+      '</header>' +
+      '<div class="vp-grid-4">' +
+        catItems.map(item => {
+          const title = vpPick(item.title, lang);
+          const desc = vpPick(item.description, lang);
+          const tag = item.tag || (item.badges && item.badges[0]) || '';
+          const img = item.image || '';
+          return '<article class="vp-pcard">' +
+            '<a href="product.html?id=' + encodeURIComponent(item.id) + '" class="vp-pcard__media" style="background-image:url(\''+ img +'\');display:block;">' +
+              (tag ? '<div class="vp-pcard__tags"><span class="vp-pcard__tag">' + tag + '</span></div>' : '') +
+              '<button class="vp-pcard__fav" aria-label="favorite" onclick="event.preventDefault();this.classList.toggle(\'is-active\');"><i class="ph ph-heart"></i></button>' +
+            '</a>' +
+            '<div class="vp-pcard__body">' +
+              '<h3 class="vp-pcard__title"><a href="product.html?id=' + encodeURIComponent(item.id) + '" style="color:inherit;text-decoration:none;">' + title + '</a></h3>' +
+              '<div class="vp-pcard__meta">' +
+                '<span><i class="ph ph-scales"></i>' + (item.unit || '') + '</span>' +
+                '<span><i class="ph ph-leaf"></i>натур.</span>' +
+              '</div>' +
+              '<div class="vp-pcard__price-row">' +
+                '<div class="vp-pcard__price">' + vpFmt(item.price) + '<small>' + currency + '</small></div>' +
+                '<a class="vp-pcard__add" href="order.html?item=' + encodeURIComponent(item.id) + '" aria-label="order"><i class="ph ph-plus"></i></a>' +
+              '</div>' +
+            '</div>' +
+          '</article>';
+        }).join('') +
+      '</div>' +
+    '</section>';
+  }).join('');
+  container.innerHTML = html || '<div class="vp-empty"><i class="ph ph-magnifying-glass"></i><p>Ничего не нашлось по запросу «' + search + '».</p></div>';
 }
 
+function vpInitCatalog() {
+  vpRenderCats();
+  vpRenderCatalog();
+  const search = document.getElementById('vp-search');
+  if (search) {
+    let t;
+    search.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(() => { vpRenderCats('all', search.value); vpRenderCatalog(search.value); }, 160);
+    });
+  }
+}
+
+document.addEventListener('vp:data-ready', vpInitCatalog);
+document.addEventListener('vp:lang-changed', () => { vpRenderCats(); vpRenderCatalog(); });
+window.addEventListener('vp:lang-changed', () => { vpRenderCats(); vpRenderCatalog(); });
+
 document.addEventListener('DOMContentLoaded', () => {
-  renderCats();
-  renderCatalog();
+  // Show empty state until data ready
+  const c = document.getElementById('vp-catalog');
+  if (c && !c.innerHTML.trim()) c.innerHTML = '<div style="padding:60px 20px;text-align:center;color:var(--vp-mute);">Загружаем каталог…</div>';
 
   // WhatsApp links
   const WA = "77001234567";
@@ -1144,14 +1123,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent("Здравствуйте! Хочу заказать десерт на сайте Vkusno Polezno.")}`, '_blank');
     });
-  });
-
-  // Search
-  const search = document.getElementById('vp-search');
-  let t;
-  search.addEventListener('input', () => {
-    clearTimeout(t);
-    t = setTimeout(() => { renderCats('all', search.value); renderCatalog(search.value); }, 160);
   });
 
   // Burger
@@ -1589,6 +1560,286 @@ document.addEventListener("DOMContentLoaded", () => {
     a.target = "_blank"; a.rel = "noopener";
   });
 });
+
+</script>
+<script>
+/* ============================================
+   Vkusno Polezno — Universal data loader
+   ============================================
+   Loads /data/*.json on every page and renders
+   content via data-bind attributes.
+
+   Supported attributes on any element:
+     data-bind="path.to.value"
+       Replaces textContent (or [innerHTML] if value contains "<")
+       with the resolved value from JSON. If the value is an
+       i18n object {ru,kz,en}, it picks current language.
+
+     data-bind-attr="attr1:path1; attr2:path2"
+       Sets attributes on the element from data.
+
+     data-bind-href="contacts.whatsapp" or social.* etc
+       Resolves to a URL (mailto:, tel:, https://wa.me/, etc).
+
+     data-bind-list="path.to.array" data-tpl="#templateId"
+       Repeats template HTML for each item; placeholders
+       inside template are {{field}} or {{field.sub}}.
+
+     data-bind-show="path.to.boolean"
+       Hides element if value is falsy.
+
+   Data sources (auto-loaded):
+     /data/site.json     → top.site
+     /data/products.json → top.products
+     /data/pages.json    → top.pages
+     /data/reviews.json  → top.reviews
+     /data/gallery.json  → top.gallery
+
+   Path examples:
+     site.contacts.phone
+     site.brand.tagline
+     pages.home.hero.title
+     pages.home.features.items
+     products.items
+     reviews.items
+   ============================================ */
+
+(function () {
+  const VERSION = "v" + Date.now();
+  const STORE = { site: {}, products: {}, pages: {}, reviews: {}, gallery: {} };
+  const FILES = ["site", "products", "pages", "reviews", "gallery"];
+
+  // ── language ──────────────────────────────────
+  function getLang() {
+    try {
+      const stored = localStorage.getItem("vp_lang");
+      if (["ru", "kz", "en"].includes(stored)) return stored;
+    } catch (e) {}
+    const html = document.documentElement.lang || "ru";
+    return ["ru", "kz", "en"].includes(html) ? html : "ru";
+  }
+
+  // ── path resolver ─────────────────────────────
+  function resolvePath(path) {
+    if (!path) return undefined;
+    const parts = path.split(".");
+    let cur = STORE;
+    for (const p of parts) {
+      if (cur == null) return undefined;
+      cur = cur[p];
+    }
+    return cur;
+  }
+
+  function pickI18n(val, lang) {
+    if (val == null) return val;
+    if (typeof val === "object" && !Array.isArray(val) && (val.ru || val.kz || val.en)) {
+      return val[lang] || val.ru || val.en || "";
+    }
+    return val;
+  }
+
+  // ── template interpolation ────────────────────
+  function fillTemplate(html, item, lang, index) {
+    return html.replace(/\{\{\s*([^}]+)\s*\}\}/g, function (_, key) {
+      key = key.trim();
+      if (key === "@index") return String(index);
+      if (key === "@index1") return String(index + 1);
+      const parts = key.split(".");
+      let cur = item;
+      for (const p of parts) {
+        if (cur == null) return "";
+        cur = cur[p];
+      }
+      const v = pickI18n(cur, lang);
+      if (v == null) return "";
+      return String(v);
+    });
+  }
+
+  // ── core renderers ────────────────────────────
+  function applyText(el, value) {
+    if (value == null) {
+      el.textContent = "";
+      return;
+    }
+    const s = String(value);
+    if (/<[a-z][\s\S]*>/i.test(s)) {
+      el.innerHTML = s;
+    } else {
+      el.textContent = s;
+    }
+  }
+
+  function renderBinds(root, lang) {
+    // 1. data-bind (text/html)
+    root.querySelectorAll("[data-bind]").forEach(function (el) {
+      const path = el.getAttribute("data-bind");
+      const raw = resolvePath(path);
+      const v = pickI18n(raw, lang);
+      if (v != null && typeof v !== "object") applyText(el, v);
+    });
+
+    // 2. data-bind-attr="src:contacts.ogImage; alt:brand.name"
+    root.querySelectorAll("[data-bind-attr]").forEach(function (el) {
+      const spec = el.getAttribute("data-bind-attr");
+      spec.split(";").forEach(function (pair) {
+        const m = pair.split(":");
+        if (m.length < 2) return;
+        const attr = m[0].trim();
+        const path = m.slice(1).join(":").trim();
+        const raw = resolvePath(path);
+        const v = pickI18n(raw, lang);
+        if (v != null) el.setAttribute(attr, String(v));
+      });
+    });
+
+    // 3. data-bind-href="kind:path"
+    //    kinds: tel, mailto, wa (whatsapp), tg, ig (instagram username), url
+    root.querySelectorAll("[data-bind-href]").forEach(function (el) {
+      const spec = el.getAttribute("data-bind-href");
+      const m = spec.split(":");
+      const kind = (m[0] || "url").trim();
+      const path = m.slice(1).join(":").trim();
+      const raw = resolvePath(path);
+      const v = pickI18n(raw, lang);
+      if (!v) return;
+      const s = String(v).replace(/^\s+|\s+$/g, "");
+      let href = s;
+      if (kind === "tel")     href = "tel:" + s.replace(/[^+\d]/g, "");
+      else if (kind === "mailto") href = "mailto:" + s;
+      else if (kind === "wa") href = "https://wa.me/" + s.replace(/[^\d]/g, "");
+      else if (kind === "tg") href = s.startsWith("http") ? s : "https://t.me/" + s.replace(/^@/, "");
+      else if (kind === "ig") href = s.startsWith("http") ? s : "https://instagram.com/" + s.replace(/^@/, "");
+      el.setAttribute("href", href);
+    });
+
+    // 4. data-bind-show="path"
+    root.querySelectorAll("[data-bind-show]").forEach(function (el) {
+      const path = el.getAttribute("data-bind-show");
+      const raw = resolvePath(path);
+      const v = pickI18n(raw, lang);
+      const visible =
+        v != null &&
+        v !== "" &&
+        v !== false &&
+        !(Array.isArray(v) && v.length === 0);
+      el.style.display = visible ? "" : "none";
+    });
+
+    // 5. data-bind-list="path" data-tpl="#tplId"
+    root.querySelectorAll("[data-bind-list]").forEach(function (el) {
+      const path = el.getAttribute("data-bind-list");
+      const tplSel = el.getAttribute("data-tpl");
+      const tpl = tplSel ? document.querySelector(tplSel) : null;
+      if (!tpl) return;
+      const arr = resolvePath(path);
+      if (!Array.isArray(arr)) return;
+      const html = tpl.innerHTML;
+      const filtered = arr.filter(function (it) {
+        return it && it.active !== false;
+      });
+      el.innerHTML = filtered
+        .map(function (item, i) {
+          return fillTemplate(html, item, lang, i);
+        })
+        .join("");
+      // Re-apply binds inside generated children (in case template
+      // contains data-bind-href etc on plain values — usually it
+      // doesn't, but harmless).
+      renderBinds(el, lang);
+    });
+
+    // 6. data-bind-product="?id=..." — resolve current product on page
+    root.querySelectorAll("[data-bind-product]").forEach(function (el) {
+      const field = el.getAttribute("data-bind-product"); // "title" / "description" etc
+      const product = getCurrentProduct();
+      if (!product) return;
+      const v = pickI18n(getDeep(product, field), lang);
+      if (v != null) applyText(el, v);
+    });
+  }
+
+  function getDeep(obj, path) {
+    if (!obj || !path) return undefined;
+    const parts = path.split(".");
+    let cur = obj;
+    for (const p of parts) {
+      if (cur == null) return undefined;
+      cur = cur[p];
+    }
+    return cur;
+  }
+
+  function getCurrentProduct() {
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const items = (STORE.products && STORE.products.items) || [];
+    if (id) return items.find(function (p) { return p.id === id; });
+    return items[0]; // fallback to first
+  }
+
+  // ── load data ─────────────────────────────────
+  async function loadAll() {
+    const cb = "?_=" + VERSION;
+    const results = await Promise.all(
+      FILES.map(function (name) {
+        return fetch("/data/" + name + ".json" + cb)
+          .then(function (r) { return r.ok ? r.json() : {}; })
+          .catch(function () { return {}; });
+      })
+    );
+    FILES.forEach(function (name, i) { STORE[name] = results[i] || {}; });
+  }
+
+  // ── public api ────────────────────────────────
+  const api = {
+    get store() { return STORE; },
+    getLang: getLang,
+    resolve: resolvePath,
+    pickI18n: pickI18n,
+    render: function (root) {
+      renderBinds(root || document, getLang());
+    },
+    refresh: async function () {
+      await loadAll();
+      renderBinds(document, getLang());
+      document.dispatchEvent(new CustomEvent("vp:data-ready", { detail: STORE }));
+    },
+    // SEO: write title/description from pages.seo
+    applySeo: function () {
+      const lang = getLang();
+      const seo = (STORE.pages && STORE.pages.seo) || {};
+      const t = pickI18n(seo.title, lang);
+      const d = pickI18n(seo.description, lang);
+      if (t) document.title = t;
+      if (d) {
+        let m = document.querySelector('meta[name="description"]');
+        if (!m) {
+          m = document.createElement("meta");
+          m.setAttribute("name", "description");
+          document.head.appendChild(m);
+        }
+        m.setAttribute("content", d);
+      }
+    }
+  };
+  window.VP_DATA = api;
+
+  // ── boot ──────────────────────────────────────
+  document.addEventListener("DOMContentLoaded", async function () {
+    await loadAll();
+    renderBinds(document, getLang());
+    api.applySeo();
+    document.dispatchEvent(new CustomEvent("vp:data-ready", { detail: STORE }));
+  });
+
+  // re-render on language change (i18n.js dispatches this)
+  window.addEventListener("vp:lang-changed", function () {
+    renderBinds(document, getLang());
+    api.applySeo();
+  });
+})();
 
 </script>
 </body>
